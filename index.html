@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Biggest Seller Myanmar</title>
+  <meta name="description" content="Biggest Seller Myanmar digital products store."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+Myanmar:wght@400;600;700;800;900&family=Noto+Sans+SC:wght@400;600;700;800;900&family=Noto+Sans+Thai:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#060914; --bg2:#0c1226; --card:rgba(255,255,255,.085);
+      --card2:rgba(255,255,255,.13); --line:rgba(255,255,255,.16);
+      --text:#eef4ff; --muted:#aeb8cf; --gold:#ffd36a; --orange:#ff8a3d;
+      --red:#ff4f6d; --green:#22d3a6; --blue:#5aa9ff; --shadow:0 24px 80px rgba(0,0,0,.36);
+      --radius:22px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; min-height:100vh; color:var(--text);
+      font-family:Inter,"Noto Sans Myanmar","Noto Sans Thai","Noto Sans SC",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%,rgba(255,211,106,.20),transparent 27%),
+        radial-gradient(circle at 84% 15%,rgba(90,169,255,.20),transparent 30%),
+        radial-gradient(circle at 50% 100%,rgba(255,79,109,.13),transparent 36%),
+        linear-gradient(180deg,var(--bg),#0b1124 58%,var(--bg));
+      overflow-x:hidden; padding-bottom:118px;
+    }
+    #starfield{position:fixed;inset:0;z-index:-1;width:100%;height:100%;opacity:.68}
+    a{color:inherit}.shell{width:min(1180px,calc(100% - 28px));margin:auto}
+    header{position:sticky;top:0;z-index:30;background:rgba(6,9,20,.70);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+    .logo{width:46px;height:46px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,var(--gold),var(--orange),var(--red));color:#1d1207;font-weight:900;letter-spacing:-.08em;box-shadow:0 14px 38px rgba(255,138,61,.28);flex:0 0 auto}
+    .brand strong{display:block;font-size:clamp(18px,4.5vw,26px);letter-spacing:-.04em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .brand span{display:block;margin-top:4px;color:var(--muted);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+    .pill,.btn,.back-btn,.tab,.remove{transition:.18s ease}
+    .pill{border:1px solid var(--line);background:rgba(255,255,255,.08);border-radius:999px;padding:10px 14px;text-decoration:none;font-weight:800;font-size:13px;white-space:nowrap}
+    .pill:hover,.btn:hover,.back-btn:hover,.tab:hover{transform:translateY(-2px);filter:brightness(1.06)}
+    .nav-actions{display:flex;align-items:center;gap:10px}
+
+    .language-switch{display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:rgba(255,255,255,.08);border-radius:999px;padding:6px 8px 6px 12px;font-weight:900;font-size:13px;white-space:nowrap}
+    .language-switch select{appearance:none;border:0;outline:0;color:var(--text);background:rgba(255,255,255,.10);border-radius:999px;padding:8px 30px 8px 12px;font-weight:900;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,var(--gold) 50%),linear-gradient(135deg,var(--gold) 50%,transparent 50%);background-position:calc(100% - 16px) 50%,calc(100% - 10px) 50%;background-size:6px 6px,6px 6px;background-repeat:no-repeat}
+    .language-switch option{background:#0c1226;color:#eef4ff}
+    .hero{display:grid;grid-template-columns:1.14fr .86fr;gap:22px;align-items:stretch;padding:34px 0 18px}
+    .hero-card,.trust-card,.detail-card,.modal{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.11),rgba(255,255,255,.06));border-radius:calc(var(--radius) + 8px);box-shadow:var(--shadow);overflow:hidden}
+    .hero-card{padding:clamp(22px,5vw,46px);position:relative}
+    .hero-card:after{content:"";position:absolute;width:280px;height:280px;border-radius:50%;right:-92px;bottom:-130px;background:radial-gradient(circle,rgba(255,211,106,.33),transparent 65%);pointer-events:none}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(255,211,106,.13);border:1px solid rgba(255,211,106,.28);color:var(--gold);font-size:13px;font-weight:900;margin-bottom:18px}
+    h1{margin:0;font-size:clamp(38px,8vw,80px);line-height:.9;letter-spacing:-.07em;max-width:760px}
+    .gradient-text{background:linear-gradient(90deg,#fff,var(--gold) 46%,var(--orange));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-copy{max-width:650px;color:var(--muted);font-size:clamp(15px,2.6vw,18px);line-height:1.7;margin:18px 0 0}
+    .hero-buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+    .btn{border:0;border-radius:16px;padding:13px 17px;cursor:pointer;font-weight:900;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px}
+    .btn-primary{color:#1d1207;background:linear-gradient(135deg,var(--gold),var(--orange));box-shadow:0 16px 42px rgba(255,138,61,.24)}
+    .btn-secondary{color:var(--text);background:rgba(255,255,255,.10);border:1px solid var(--line)}
+    .trust-card{padding:22px;display:grid;gap:14px;align-content:center}
+    .stat{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:17px;border-radius:20px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.11)}
+    .stat strong{display:block;font-size:24px}.stat span{color:var(--muted);font-size:13px}.stat b{font-size:26px}
+    .notice{margin-top:14px;padding:15px 17px;border-radius:18px;border:1px solid rgba(34,211,166,.25);background:rgba(34,211,166,.10);color:#c8fff1;line-height:1.55;font-size:14px}
+    .search-wrap{position:sticky;top:76px;z-index:25;padding:12px 0;background:linear-gradient(180deg,rgba(6,9,20,.94),rgba(6,9,20,.72));backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .searchbar{display:flex;align-items:center;gap:10px;border:1px solid var(--line);background:rgba(255,255,255,.09);border-radius:20px;padding:8px 10px 8px 16px;box-shadow:0 12px 35px rgba(0,0,0,.18)}
+    .searchbar input{width:100%;border:0;outline:0;background:transparent;color:var(--text);min-height:44px;font-size:16px}.searchbar input::placeholder{color:rgba(238,244,255,.52)}
+    .category-tabs{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding:12px 0 0}.category-tabs::-webkit-scrollbar{display:none}
+    .tab{white-space:nowrap;border:1px solid var(--line);background:rgba(255,255,255,.07);color:var(--text);border-radius:999px;padding:9px 13px;cursor:pointer;font-weight:900;font-size:13px}
+    .tab.active{background:linear-gradient(135deg,rgba(255,211,106,.28),rgba(255,138,61,.20));border-color:rgba(255,211,106,.45);color:#fff7dd}
+    .section-title{margin:34px 0 15px;display:flex;align-items:end;justify-content:space-between;gap:14px}.section-title h2{margin:0;font-size:clamp(23px,4vw,34px);letter-spacing:-.04em}.section-title p{margin:6px 0 0;color:var(--muted);font-size:14px}
+    .grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
+    .product-card{position:relative;border:1px solid rgba(255,255,255,.14);background:linear-gradient(180deg,rgba(255,255,255,.11),rgba(255,255,255,.065));border-radius:var(--radius);padding:15px;min-height:190px;box-shadow:0 12px 36px rgba(0,0,0,.18);cursor:pointer;overflow:hidden}
+    .product-card:hover{transform:translateY(-5px);border-color:rgba(255,211,106,.45);background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.08))}
+    .product-card:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 25% 10%,var(--glow,rgba(255,211,106,.22)),transparent 52%);pointer-events:none}
+    .product-icon{position:relative;width:68px;height:68px;border-radius:20px;display:grid;place-items:center;font-weight:900;font-size:25px;margin-bottom:12px;background:linear-gradient(135deg,rgba(255,255,255,.22),rgba(255,255,255,.08));border:1px solid rgba(255,255,255,.18);padding:10px;overflow:hidden}.product-icon img{max-width:100%;max-height:100%;width:100%;height:100%;object-fit:contain;display:block}
+    .product-card h3{position:relative;margin:0 0 8px;font-size:15px;line-height:1.25;letter-spacing:-.02em}.mini{position:relative;color:var(--muted);font-size:12px;line-height:1.45;min-height:35px}
+    .price{position:relative;margin-top:12px;display:flex;justify-content:space-between;align-items:center;gap:8px;color:var(--gold);font-weight:900;font-size:14px}.chip{font-size:11px;color:#d7fff4;padding:4px 7px;border-radius:999px;background:rgba(34,211,166,.12);border:1px solid rgba(34,211,166,.24)}
+    .empty{display:none;margin:34px 0;padding:28px;border-radius:24px;background:rgba(255,255,255,.07);border:1px solid var(--line);color:var(--muted);text-align:center}.view{display:none}.view.active{display:block}
+    .detail-page{padding:24px 0 120px}.back-btn{border:1px solid var(--line);background:rgba(255,255,255,.09);color:var(--text);border-radius:999px;padding:11px 14px;font-weight:900;cursor:pointer;margin-bottom:16px}
+    .detail-card{display:grid;grid-template-columns:310px 1fr;gap:22px;padding:clamp(18px,4vw,30px)}.detail-visual{min-height:310px;border-radius:28px;display:grid;place-items:center;text-align:center;border:1px solid rgba(255,255,255,.16);background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.20),rgba(255,255,255,.06));position:relative;overflow:hidden}
+    .detail-visual:before{content:"";position:absolute;width:270px;height:270px;border-radius:50%;background:var(--glow,rgba(255,211,106,.22));filter:blur(12px);opacity:.55}.detail-mark{position:relative;width:150px;height:150px;border-radius:42px;display:grid;place-items:center;font-size:56px;font-weight:900;background:linear-gradient(135deg,rgba(255,255,255,.25),rgba(255,255,255,.08));border:1px solid rgba(255,255,255,.24);padding:24px;overflow:hidden}.detail-mark img{max-width:100%;max-height:100%;width:100%;height:100%;object-fit:contain;display:block}
+    .detail-info h2{margin:0 0 8px;font-size:clamp(30px,6vw,56px);letter-spacing:-.06em}.desc{color:var(--muted);line-height:1.7;margin-bottom:18px}.plans{display:grid;gap:10px;margin:16px 0 22px}
+    .plan{display:flex;justify-content:space-between;align-items:center;gap:14px;border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.07);border-radius:18px;padding:14px;cursor:pointer}.plan:hover,.plan.active{border-color:rgba(255,211,106,.50);background:rgba(255,211,106,.12)}.plan small{color:var(--muted);display:block;margin-top:3px}.plan strong:last-child{color:var(--gold);white-space:nowrap}
+    .cart-bar{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);width:min(1180px,calc(100% - 24px));z-index:40;border:1px solid rgba(255,255,255,.18);background:rgba(10,15,29,.86);backdrop-filter:blur(22px);border-radius:24px;box-shadow:0 22px 70px rgba(0,0,0,.44);overflow:hidden}.cart-top{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;padding:12px}.cart-toggle{width:40px;height:40px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.08);color:var(--text);cursor:pointer}.cart-total{font-weight:900;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.cart-total span:first-child{color:var(--gold)}.cart-actions{display:flex;gap:8px}.cart-actions .btn{padding:10px 12px;min-height:40px;border-radius:14px;font-size:13px}.cart-items{display:grid;gap:8px;max-height:230px;overflow:auto;padding:0 12px 12px}.cart-bar.collapsed .cart-items{display:none}.cart-item{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:10px;padding:10px 12px;border-radius:15px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.10)}.cart-item small{color:var(--muted);display:block;margin-top:2px}.remove{color:#ffd1d7;background:rgba(255,79,109,.12);border:1px solid rgba(255,79,109,.24);border-radius:12px;padding:8px 10px;cursor:pointer}
+    .overlay{position:fixed;inset:0;z-index:60;display:none;place-items:center;padding:18px;background:rgba(0,0,0,.68);backdrop-filter:blur(12px)}.overlay.active{display:grid}.modal{width:min(720px,100%);max-height:calc(100vh - 36px);overflow:auto;background:linear-gradient(180deg,rgba(19,27,49,.98),rgba(9,13,25,.98));padding:24px}.modal h2{margin:0 0 12px;letter-spacing:-.04em}.modal p,.modal li{color:var(--muted);line-height:1.65}.modal ul{padding-left:20px}.receipt-box{white-space:pre-wrap;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.13);border-radius:18px;padding:16px;color:#eaf2ff;line-height:1.55;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}.modal-actions{display:flex;flex-wrap:wrap;justify-content:end;gap:10px;margin-top:18px}.toast{position:fixed;left:50%;bottom:102px;transform:translateX(-50%) translateY(20px);z-index:80;opacity:0;pointer-events:none;background:rgba(17,24,39,.92);border:1px solid rgba(255,255,255,.16);padding:12px 16px;border-radius:999px;box-shadow:0 15px 40px rgba(0,0,0,.35);transition:.22s ease;font-weight:900;font-size:13px}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    footer{margin:42px 0 20px;color:var(--muted);text-align:center;font-size:13px;line-height:1.7}
+    @media(max-width:980px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(4,minmax(0,1fr))}.detail-card{grid-template-columns:1fr}.detail-visual{min-height:230px}.nav-actions .pill:first-child{display:none}}
+    @media(max-width:680px){body{padding-bottom:132px}.shell{width:min(100% - 20px,1180px)}.nav{min-height:68px;align-items:flex-start;padding:10px 0}.nav-actions{flex-wrap:wrap;justify-content:flex-end}.language-switch span{display:none}.language-switch select{max-width:126px}.brand span{display:none}.logo{width:42px;height:42px}.hero{padding-top:18px}.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.product-card{min-height:165px;padding:12px;border-radius:18px}.product-icon{width:54px;height:54px;font-size:20px;border-radius:17px}.product-card h3{font-size:13px}.mini{font-size:11px;min-height:32px}.price{font-size:12px;flex-direction:column;align-items:flex-start;gap:5px}.search-wrap{top:68px}.cart-top{grid-template-columns:auto 1fr}.cart-actions{grid-column:1/-1}.cart-actions .btn{width:100%}.cart-item{grid-template-columns:1fr auto}.cart-item>strong{grid-column:2;grid-row:1}.remove{grid-column:2;grid-row:2}.modal{padding:18px;border-radius:24px}}
+    @media(max-width:400px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  </style>
+</head>
+<body>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+
+  <header>
+    <div class="shell nav">
+      <a class="brand" href="#" id="home-link" aria-label="Go home">
+        <div class="logo">BS</div>
+        <div><strong>Biggest Seller Myanmar</strong><span data-i18n="brandSub">Digital Store • Myanmar</span></div>
+      </a>
+      <div class="nav-actions">
+        <a href="#products" class="pill" data-i18n="navProducts">Products</a>
+        <a href="https://t.me/biggestseller1" target="_blank" rel="noopener" class="pill">Telegram</a>
+        <label class="language-switch" for="language-select"><span data-i18n="languageLabel">Language</span><select id="language-select" aria-label="Language"><option value="en">English</option><option value="th">ไทย</option><option value="zh">中文</option><option value="ru">Русский</option><option value="my">မြန်မာ</option></select></label>
+      </div>
+    </div>
+  </header>
+
+  <main id="home-view" class="view active">
+    <section class="shell hero">
+      <div class="hero-card">
+        <div class="eyebrow" data-i18n="heroEyebrow">⚡ Admin confirmation before payment</div>
+        <h1><span class="gradient-text" data-i18n="heroTitleHighlight">Premium digital products</span> <span data-i18n="heroTitleRest">for Myanmar users.</span></h1>
+        <p class="hero-copy">
+          <span data-i18n="heroCopy">Subscriptions, VPNs, AI tools, design apps, streaming plans, gift cards, cloud storage and boosting services in one mobile-friendly storefront.</span>
+        </p>
+        <div class="hero-buttons">
+          <a href="#products" class="btn btn-primary" data-i18n="browseProducts">Browse Products</a>
+          <button class="btn btn-secondary" id="how-btn" data-i18n="howToOrder">How to Order</button>
+        </div>
+        <div class="notice">
+          <strong data-i18n="noticeTitle">ငွေမလွှဲခင် Admin ကို အရင်မေးပါ။</strong><br>
+          <span data-i18n="noticeBody">Some items can be out of stock or have price changes. Confirm product, region, delivery time and payment method first.</span>
+        </div>
+      </div>
+      <aside class="trust-card" aria-label="Store highlights">
+        <div class="stat"><div><strong>24/7</strong><span data-i18n="statOrder">Order request available</span></div><b>🛒</b></div>
+        <div class="stat"><div><strong>MMK</strong><span data-i18n="statPricing">Myanmar Kyat pricing</span></div><b>💳</b></div>
+        <div class="stat"><div><strong>Admin</strong><span data-i18n="statStock">Stock checked before payment</span></div><b>✅</b></div>
+        <div class="stat"><div><strong>Digital</strong><span data-i18n="statDigital">Apps, AI, VPN, cards & more</span></div><b>📱</b></div>
+      </aside>
+    </section>
+
+    <section class="search-wrap" id="products">
+      <div class="shell">
+        <div class="searchbar">
+          <span>🔎</span>
+          <input id="search" type="text" placeholder="Search products, e.g. Netflix, ChatGPT, Google One, NordVPN..." data-i18n-placeholder="searchPlaceholder" autocomplete="off"/>
+          <button class="btn btn-secondary" id="clear-search" style="display:none;min-height:38px;padding:8px 11px;border-radius:12px;" data-i18n="clear">Clear</button>
+        </div>
+        <div class="category-tabs" id="tabs"></div>
+      </div>
+    </section>
+
+    <section class="shell">
+      <div class="section-title"><div><h2 data-i18n="popularTitle">Popular Picks</h2><p data-i18n="popularSubtitle">Fast-moving items customers usually ask for first.</p></div></div>
+      <div class="grid" id="popular-grid"></div>
+      <div id="sections"></div>
+      <div class="empty" id="empty-state" data-i18n="emptyState">No products found. Try a different search keyword.</div>
+    </section>
+
+    <footer class="shell">
+      <span data-i18n="footer">Biggest Seller Myanmar storefront template. Replace Telegram link, prices, product list and payment instructions with your real business information.</span>
+    </footer>
+  </main>
+
+  <main id="detail-view" class="view detail-page">
+    <div class="shell">
+      <button class="back-btn" id="back-to-home"><span data-i18n="back">← Back</span></button>
+      <div class="detail-card" id="detail-card"></div>
+    </div>
+  </main>
+
+  <div class="cart-bar collapsed" id="cart-bar">
+    <div class="cart-top">
+      <button class="cart-toggle" id="cart-toggle" aria-label="Toggle cart">▲</button>
+      <div class="cart-total"><span id="cart-total-label">Total:</span> <span id="cart-total">0 Ks</span> • <span id="cart-count">0</span> <span id="cart-items-label">item(s)</span></div>
+      <div class="cart-actions">
+        <button class="btn btn-secondary" id="clear-cart" data-i18n="clear">Clear</button>
+        <button class="btn btn-primary" id="checkout" data-i18n="checkout">Checkout</button>
+      </div>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+  </div>
+
+  <div class="overlay" id="how-modal" role="dialog" aria-modal="true" aria-label="How to order">
+    <div class="modal">
+      <h2 data-i18n="howModalTitle">How to order</h2>
+      <ul>
+        <li data-i18n="how1">Choose your product and plan.</li>
+        <li data-i18n="how2">Add it to cart.</li>
+        <li data-i18n="how3">Press Checkout and copy the receipt.</li>
+        <li data-i18n="how4">Send the receipt to admin on Telegram.</li>
+        <li data-i18n="how5">Wait for stock, price, region and payment confirmation before transferring money.</li>
+      </ul>
+      <p data-i18n-html="howMyanmar"><strong>မြန်မာလို:</strong> Product ရွေး → Cart ထည့် → Checkout Receipt ကို copy → Telegram Admin ကိုပို့ → Confirm ရပြီးမှ ငွေလွှဲပါ။</p>
+      <div class="modal-actions"><button class="btn btn-primary" data-close="how-modal" data-i18n="understand">I understand</button></div>
+    </div>
+  </div>
+
+  <div class="overlay" id="receipt-modal" role="dialog" aria-modal="true" aria-label="Checkout receipt">
+    <div class="modal">
+      <h2 data-i18n="receiptTitle">Receipt</h2>
+      <p data-i18n="receiptIntro">Copy this receipt and send it to admin. Do not pay before admin confirms stock and current price.</p>
+      <div class="receipt-box" id="receipt-box"></div>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" data-close="receipt-modal" data-i18n="close">Close</button>
+        <button class="btn btn-primary" id="copy-receipt" data-i18n="copyReceipt">Copy Receipt</button>
+        <a class="btn btn-primary" href="https://t.me/biggestseller1" target="_blank" rel="noopener" data-i18n="sendTelegram">Send to Telegram</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" data-i18n="addedToCart">Added to cart</div>
+
+  <script>
+    // Telegram contact link is set to biggestseller1.
+    const products = [
+      {
+            "category": "AI Tools",
+            "items": [
+                  {
+                        "name": "ChatGPT Subscriptions",
+                        "icon": "GPT",
+                        "logo": "https://cdn.worldvectorlogo.com/logos/openai-2.svg",
+                        "tag": "Plus + Go",
+                        "desc": "All ChatGPT subscription options combined in one listing, including Plus private/shared plans and ChatGPT Go private plan. Confirm stock with admin before payment.",
+                        "glow": "rgba(34,211,166,.32)",
+                        "plans": [
+                              {
+                                    "label": "ChatGPT Plus / Private Account / 1 Month",
+                                    "note": "Private account price",
+                                    "price": 20000
+                              },
+                              {
+                                    "label": "ChatGPT Plus / Private Account / 3 Months",
+                                    "note": "Private account price",
+                                    "price": 45000
+                              },
+                              {
+                                    "label": "ChatGPT Plus / Private Account / 6 Months",
+                                    "note": "Private account price",
+                                    "price": 75000
+                              },
+                              {
+                                    "label": "ChatGPT Plus / Private Account / 1 Year",
+                                    "note": "Private account price",
+                                    "price": 120000
+                              },
+                              {
+                                    "label": "ChatGPT Plus / Shared Account / 3 Months",
+                                    "note": "Shared account price",
+                                    "price": 30000
+                              },
+                              {
+                                    "label": "ChatGPT Plus / Shared Account / 6 Months",
+                                    "note": "Shared account price",
+                                    "price": 50000
+                              },
+                              {
+                                    "label": "ChatGPT Plus / Shared Account / 1 Year",
+                                    "note": "Shared account price",
+                                    "price": 80000
+                              },
+                              {
+                                    "label": "ChatGPT Go / Private Account / 3 Months",
+                                    "note": "ChatGPT Go private plan",
+                                    "price": 35000
+                              }
+                        ]
+                  },
+                  {
+                        "name": "Lovable AI Pro",
+                        "logo": "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/lovable-ai-icon.png",
+                        "tag": "Own Upgrade",
+                        "desc": "Lovable AI Pro own-account upgrade. Listed website reference price: 25 USD/month.",
+                        "glow": "rgba(255,79,109,.30)",
+                        "plans": [
+                              {
+                                    "label": "1 Month",
+                                    "note": "Own account upgrade",
+                                    "price": 40000
+                              }
+                        ]
+                  },
+                  {
+                        "name": "Super Grok Pro",
+                        "icon": "GX",
+                        "logo": "https://cdn.simpleicons.org/x/FFFFFF",
+                        "tag": "Limited",
+                        "desc": "Super Grok Pro long-duration plan. Limited stock; ask admin before payment.",
+                        "glow": "rgba(255,255,255,.20)",
+                        "plans": [
+                              {
+                                    "label": "2 Years",
+                                    "note": "35 USD / 150,000 Ks offer",
+                                    "price": 150000
+                              }
+                        ]
+                  },
+                  {
+                        "name": "Perplexity Pro",
+                        "icon": "P",
+                        "logo": "https://cdn.simpleicons.org/perplexity/20B8CD",
+                        "tag": "Research",
+                        "desc": "AI search and research subscription.",
+                        "glow": "rgba(255,211,106,.30)",
+                        "plans": [
+                              {
+                                    "label": "1 Month",
+                                    "note": "Admin confirmation required",
+                                    "price": 95000
+                              }
+                        ]
+                  },
+                  {
+                        "name": "Claude AI Pro",
+                        "icon": "C",
+                        "logo": "https://cdn.simpleicons.org/anthropic/FFFFFF",
+                        "tag": "Shared",
+                        "desc": "Claude AI Pro shared account plan for long-form writing, analysis, summarizing and productivity.",
+                        "glow": "rgba(255,138,61,.28)",
+                        "plans": [
+                              {
+                                    "label": "Shared Account / 3 Months",
+                                    "note": "Shared account",
+                                    "price": 55000
+                              },
+                              {
+                                    "label": "Shared Account / 6 Months",
+                                    "note": "Shared account",
+                                    "price": 95000
+                              },
+                              {
+                                    "label": "Shared Account / 1 Year",
+                                    "note": "Shared account",
+                                    "price": 170000
+                              }
+                        ]
+                  }
+            ]
+      },
+      {
+            "category": "Streaming Packages",
+            "items": [
+                  {
+                        "name": "Sports Package",
+                        "logo": "https://cdn-icons-png.flaticon.com/512/11438/11438126.png",
+                        "tag": "Sports",
+                        "desc": "Sports streaming bundle including Peacock, DAZN, NBA, Fubo and DirecTV style sports access. Confirm included apps with admin.",
+                        "glow": "rgba(255,138,61,.32)",
+                        "plans": [
+                              {
+                                    "label": "3 Months",
+                                    "note": "Sports package",
+                                    "price": 65000
+                              },
+                              {
+                                    "label": "6 Months",
+                                    "note": "Sports package",
+                                    "price": 115000
+                              },
+                              {
+                                    "label": "1 Year",
+                                    "note": "Sports package",
+                                    "price": 200000
+                              }
+                        ]
+                  },
+                  {
+                        "name": "Entertainment Package 1",
+                        "icon": "E1",
+                        "tag": "Movies",
+                        "desc": "Entertainment bundle shown with Netflix, Prime Video, HBO Max, Disney+ and Paramount+. Confirm included apps with admin.",
+                        "glow": "rgba(163,230,53,.30)",
+                        "plans": [
+                              {
+                                    "label": "3 Months",
+                                    "note": "Entertainment Package 1",
+                                    "price": 50000
+                              },
+                              {
+                                    "label": "6 Months",
+                                    "note": "Entertainment Package 1",
+                                    "price": 85000
+                              },
+                              {
+                                    "label": "1 Year",
+                                    "note": "Entertainment Package 1",
+                                    "price": 150000
+                              }
+                        ]
+                  },
+                  {
+                        "name": "Entertainment Package 2",
+                        "icon": "E2",
+                        "tag": "Asian + Movie",
+                        "desc": "Entertainment bundle shown with Prime Video, Netflix, WeTV, Viki Rakuten and iQIYI. Confirm included apps with admin.",
+                        "glow": "rgba(255,211,106,.30)",
+                        "plans": [
+                              {
+                                    "label": "3 Months",
+                                    "note": "Entertainment Package 2",
+                                    "price": 50000
+                              },
+                              {
+                                    "label": "6 Months",
+                                    "note": "Entertainment Package 2",
+                                    "price": 80000
+                              },
+                              {
+                                    "label": "1 Year",
+                                    "note": "Entertainment Package 2",
+                                    "price": 140000
+                              }
+                        ]
+                  },
+                  {
+                        "name": "Netflix Ultra HD Profiles",
+                        "icon": "N",
+                        "logo": "https://cdn.simpleicons.org/netflix/E50914",
+                        "tag": "Ultra HD",
+                        "desc": "Netflix Ultra HD profile plan. Region/profile confirmed by admin.",
+                        "glow": "rgba(255,79,109,.30)",
+                        "plans": [
+                              {
+                                    "label": "3 Months",
+                                    "note": "Ultra HD profile",
+                                    "price": 28000
+                              },
+                              {
+                                    "label": "6 Months",
+                                    "note": "Ultra HD profile",
+                                    "price": 45000
+                              },
+                              {
+                                    "label": "1 Year",
+                                    "note": "Ultra HD profile",
+                                    "price": 80000
+                              }
+                        ]
+                  },
+                  {
+                        "name": "YouTube Premium",
+                        "icon": "YT",
+                        "logo": "https://cdn.simpleicons.org/youtube/FF0000",
+                        "tag": "Popular",
+                        "desc": "Ad-free YouTube and background play.",
+                        "glow": "rgba(255,79,109,.28)",
+                        "plans": [
+                              {
+                                    "label": "1 Month",
+                                    "note": "Individual",
+                                    "price": 28000
+                              },
+                              {
+                                    "label": "Family Slot",
+                                    "note": "Ask admin",
+                                    "price": 22000
+                              }
+                        ]
+                  },
+                  {
+                        "name": "Spotify Premium",
+                        "icon": "S",
+                        "logo": "https://cdn.simpleicons.org/spotify/1ED760",
+                        "tag": "Music",
+                        "desc": "Music streaming premium plan.",
+                        "glow": "rgba(34,211,166,.28)",
+                        "plans": [
+                              {
+                                    "label": "1 Month",
+                                    "note": "Individual",
+                                    "price": 22000
+                              },
+                              {
+                                    "label": "3 Months",
+                                    "note": "Promo price",
+                                    "price": 60000
+                              }
+                        ]
+                  }
+            ]
+      },
+      {
+            "category": "Design & Editing",
+            "items": [
+                  {
+                        "name": "Canva Edu Pro",
+                        "icon": "Ca",
+                        "logo": "https://public.canva.site/logo/media/dfb96cc174513093cd6ed61489ccb750.svg",
+                        "tag": "Own Mail",
+                        "desc": "Canva Edu Pro, same as Pro features. Own mail upgrade.",
+                        "glow": "rgba(90,169,255,.28)",
+                        "plans": [
+                              {
+                                    "label": "1 Year",
+                                    "note": "Own mail upgrade",
+                                    "price": 25000
+                              }
+                        ]
+                  },
+                  {
+                        "name": "CapCut Pro",
+                        "icon": "CC",
+                        "logo": "https://static.vecteezy.com/system/resources/previews/067/065/640/non_2x/capcut-logo-square-rounded-capcut-logo-capcut-logo-free-download-free-png.png",
+                        "tag": "Video",
+                        "desc": "Premium tools for short videos and social content.",
+                        "glow": "rgba(255,255,255,.20)",
+                        "plans": [
+                              {
+                                    "label": "1 Month",
+                                    "note": "Admin activation",
+                                    "price": 30000
+                              }
+                        ]
+                  },
+                  {
+                        "name": "PicsArt Gold",
+                        "icon": "PA",
+                        "logo": "https://cdn.simpleicons.org/picsart/EB2C8A",
+                        "tag": "Photo",
+                        "desc": "Photo editing, templates and premium creative features.",
+                        "glow": "rgba(255,79,109,.28)",
+                        "plans": [
+                              {
+                                    "label": "1 Month",
+                                    "note": "Ask admin",
+                                    "price": 24000
+                              }
+                        ]
+                  },
+                  {
+                        "name": "Adobe Creative Cloud Suite",
+                        "icon": "CC",
+                        "logo": "https://static.vecteezy.com/system/resources/previews/046/861/659/non_2x/adobe-creative-express-cloud-icon-free-png.png",
+                        "tag": "Own Mail",
+                        "desc": "Adobe Creative Cloud Suite own-mail upgrade. Limited stock; confirm included apps, activation method and availability with admin before payment.",
+                        "glow": "rgba(255,79,109,.28)",
+                        "plans": [
+                              {
+                                    "label": "Creative Cloud Suite / 4 Months",
+                                    "note": "Own mail upgrade / Limited stock",
+                                    "price": 50000
+                              },
+                              {
+                                    "label": "Lightroom / 1 Month",
+                                    "note": "Admin setup",
+                                    "price": 35000
+                              },
+                              {
+                                    "label": "Photoshop / 1 Month",
+                                    "note": "Ask admin",
+                                    "price": 45000
+                              }
+                        ]
+                  },
+                  {
+                        "name": "Envato Elements Unlimited",
+                        "icon": "EE",
+                        "logo": "https://cdn.simpleicons.org/envato/81B441",
+                        "tag": "1 Device",
+                        "desc": "Envato Elements Unlimited plan for one device. Confirm activation method and availability with admin before payment.",
+                        "glow": "rgba(34,211,166,.26)",
+                        "plans": [
+                              {
+                                    "label": "1 Device / 3 Months",
+                                    "note": "Unlimited plan",
+                                    "price": 55000
+                              },
+                              {
+                                    "label": "1 Device / 6 Months",
+                                    "note": "Unlimited plan",
+                                    "price": 95000
+                              },
+                              {
+                                    "label": "1 Device / 1 Year",
+                                    "note": "Unlimited plan",
+                                    "price": 165000
+                              }
+                        ]
+                  },
+                  {
+                        "name": "Freepik Premium Shared Acc",
+                        "icon": "FP",
+                        "logo": "https://cdn.simpleicons.org/freepik/1273EB",
+                        "tag": "Shared",
+                        "desc": "Freepik Premium shared account for premium vectors, photos, PSD files, icons and design assets. Confirm login method and availability with admin before payment.",
+                        "glow": "rgba(90,169,255,.28)",
+                        "plans": [
+                              {
+                                    "label": "Shared Account / 3 Months",
+                                    "note": "Premium shared account",
+                                    "price": 55000
+                              },
+                              {
+                                    "label": "Shared Account / 6 Months",
+                                    "note": "Premium shared account",
+                                    "price": 90000
+                              },
+                              {
+                                    "label": "Shared Account / 1 Year",
+                                    "note": "Premium shared account",
+                                    "price": 175000
+                              }
+                        ]
+                  }
+            ]
+      },
+      {
+            "category": "Productivity & Finance",
+            "items": [
+                  {
+                        "name": "TradingView Premium",
+                        "icon": "TV",
+                        "logo": "https://cdn.simpleicons.org/tradingview/2962FF",
+                        "tag": "Own Mail",
+                        "desc": "TradingView Premium plan. Own mail invite/upgrade; confirm availability with admin.",
+                        "glow": "rgba(90,169,255,.30)",
+                        "plans": [
+                              {
+                                    "label": "1 Month",
+                                    "note": "Own mail invite",
+                                    "price": 30000
+                              }
+                        ]
+                  },
+                  {
+                        "name": "Microsoft 365 Mail Invite",
+                        "icon": "M365",
+                        "logo": "https://www.freelogovectors.net/wp-content/uploads/2025/07/microsoft-365-copliot-logo-icon-freelogovectors.net_.png",
+                        "tag": "Team Plan",
+                        "desc": "Microsoft 365 Mail Invite team plan for Office apps and productivity access. Confirm invite method, mailbox/account type and availability with admin before payment.",
+                        "glow": "rgba(255,138,61,.30)",
+                        "plans": [
+                              {
+                                    "label": "Team Plan / 3 Months",
+                                    "note": "Mail invite team plan",
+                                    "price": 45000
+                              },
+                              {
+                                    "label": "Team Plan / 6 Months",
+                                    "note": "Mail invite team plan",
+                                    "price": 75000
+                              },
+                              {
+                                    "label": "Team Plan / 1 Year",
+                                    "note": "Mail invite team plan",
+                                    "price": 120000
+                              }
+                        ]
+                  },
+                  {
+                        "name": "Windows License",
+                        "icon": "W",
+                        "logo": "https://www.freepnglogos.com/uploads/windows-logo-png/windows-logo-logok-0.png",
+                        "tag": "License",
+                        "desc": "Windows activation license.",
+                        "glow": "rgba(90,169,255,.26)",
+                        "plans": [
+                              {
+                                    "label": "Windows 10/11 Pro",
+                                    "note": "Single device",
+                                    "price": 55000
+                              }
+                        ]
+                  },
+                  {
+                        "name": "WPS Office",
+                        "icon": "WPS",
+                        "logo": "https://cdn.iconscout.com/icon/free/png-256/free-wps-office-logo-icon-svg-download-png-8630411.png?f=webp",
+                        "tag": "Office",
+                        "desc": "Office tools subscription for documents and PDFs.",
+                        "glow": "rgba(255,211,106,.24)",
+                        "plans": [
+                              {
+                                    "label": "1 Year",
+                                    "note": "Ask admin",
+                                    "price": 65000
+                              }
+                        ]
+                  },
+                  {
+                        "name": "Zoom Pro License",
+                        "icon": "Z",
+                        "logo": "https://cdn.simpleicons.org/zoom/2D8CFF",
+                        "tag": "100P + Large Meetings",
+                        "desc": "Zoom Pro license for 100 participants with own-account upgrade, plus 1-day large meeting room passes for 300P, 500P and 1000P.",
+                        "glow": "rgba(90,169,255,.24)",
+                        "plans": [
+                              {
+                                    "label": "100P / 3 Months",
+                                    "note": "Own account upgrade",
+                                    "price": 50000
+                              },
+                              {
+                                    "label": "100P / 6 Months",
+                                    "note": "Own account upgrade",
+                                    "price": 80000
+                              },
+                              {
+                                    "label": "100P / 1 Year",
+                                    "note": "Own account upgrade",
+                                    "price": 120000
+                              },
+                              {
+                                    "label": "300P / 1 Day Pass",
+                                    "note": "Large meeting room rental",
+                                    "price": 25000
+                              },
+                              {
+                                    "label": "500P / 1 Day Pass",
+                                    "note": "Large meeting room rental",
+                                    "price": 35000
+                              },
+                              {
+                                    "label": "1000P / 1 Day Pass",
+                                    "note": "Large meeting room rental",
+                                    "price": 55000
+                              }
+                        ]
+                  }
+            ]
+      },
+      {
+            "category": "VPN",
+            "items": [
+                  {
+                        "name": "NordVPN",
+                        "icon": "N",
+                        "logo": "https://cdn.simpleicons.org/nordvpn/4687FF",
+                        "tag": "Secure",
+                        "desc": "Premium VPN for privacy, streaming and safer browsing.",
+                        "glow": "rgba(90,169,255,.32)",
+                        "plans": [
+                              {
+                                    "label": "1 Month",
+                                    "note": "Shared plan",
+                                    "price": 25000
+                              },
+                              {
+                                    "label": "1 Year",
+                                    "note": "Ask admin",
+                                    "price": 230000
+                              }
+                        ]
+                  },
+                  {
+                        "name": "ExpressVPN",
+                        "icon": "E",
+                        "logo": "https://cdn.simpleicons.org/expressvpn/DA3940",
+                        "tag": "Fast",
+                        "desc": "Fast secure VPN connection. Choose 1 device or 5-device plan.",
+                        "glow": "rgba(255,79,109,.26)",
+                        "plans": [
+                              {
+                                    "label": "1 Device / 3 Months",
+                                    "note": "1 device",
+                                    "price": 20000
+                              },
+                              {
+                                    "label": "1 Device / 6 Months",
+                                    "note": "1 device",
+                                    "price": 30000
+                              },
+                              {
+                                    "label": "1 Device / 1 Year",
+                                    "note": "1 device",
+                                    "price": 50000
+                              },
+                              {
+                                    "label": "5 Devices / 3 Months",
+                                    "note": "5 devices",
+                                    "price": 55000
+                              },
+                              {
+                                    "label": "5 Devices / 6 Months",
+                                    "note": "5 devices",
+                                    "price": 100000
+                              },
+                              {
+                                    "label": "5 Devices / 1 Year",
+                                    "note": "5 devices",
+                                    "price": 180000
+                              }
+                        ]
+                  },
+                  {
+                        "name": "Surfshark VPN",
+                        "icon": "SS",
+                        "logo": "https://cdn.simpleicons.org/surfshark/1EBFBF",
+                        "tag": "Value",
+                        "desc": "Budget-friendly VPN option with good device support.",
+                        "glow": "rgba(34,211,166,.30)",
+                        "plans": [
+                              {
+                                    "label": "1 Month",
+                                    "note": "Shared plan",
+                                    "price": 22000
+                              },
+                              {
+                                    "label": "1 Year",
+                                    "note": "Best value",
+                                    "price": 190000
+                              }
+                        ]
+                  }
+            ]
+      },
+      {
+            "category": "Cloud Storage",
+            "items": [
+                  {
+                        "name": "Google AI Pro + Google One Storage",
+                        "icon": "G",
+                        "logo": "https://cdn.simpleicons.org/googlegemini/8E75FF",
+                        "tag": "AI + Cloud",
+                        "desc": "Combined Google subscription listing under Cloud Storage: Google AI Pro, Gemini Pro, Google Drive 2TB family invite, Google One storage and 5TB upgrade options.",
+                        "glow": "rgba(90,169,255,.32)",
+                        "plans": [
+                              {
+                                    "label": "Google AI Pro + 5TB / 6 Years",
+                                    "note": "Own account upgrade + 5TB storage + family sharing",
+                                    "price": 250000
+                              },
+                              {
+                                    "label": "Gemini Pro + Drive 2TB / 1 Year",
+                                    "note": "Family invite plan / 1 slot",
+                                    "price": 50000
+                              },
+                              {
+                                    "label": "Gemini Pro + Drive 2TB / 3 Years",
+                                    "note": "Family invite plan / 1 slot",
+                                    "price": 100000
+                              },
+                              {
+                                    "label": "Gemini Pro + Drive 2TB / 5 Years",
+                                    "note": "Family invite plan / 1 slot",
+                                    "price": 180000
+                              },
+                              {
+                                    "label": "Google One Storage / 100GB / 1 Month",
+                                    "note": "Ask admin",
+                                    "price": 15000
+                              },
+                              {
+                                    "label": "Google One Storage / 2TB / 1 Month",
+                                    "note": "Ask admin",
+                                    "price": 38000
+                              }
+                        ]
+                  },
+                  {
+                        "name": "Apple Music + iCloud (50GB)",
+                        "icon": "AM",
+                        "logo": "https://cdn.simpleicons.org/applemusic/FA243C",
+                        "tag": "Music + Cloud",
+                        "desc": "Apple Music plus iCloud 50GB bundle for Apple users. Confirm Apple ID region, invite method and availability with admin before payment.",
+                        "glow": "rgba(255,255,255,.22)",
+                        "plans": [
+                              {
+                                    "label": "Apple Music + iCloud 50GB / 3 Months",
+                                    "note": "Bundle plan",
+                                    "price": 45000
+                              },
+                              {
+                                    "label": "Apple Music + iCloud 50GB / 6 Months",
+                                    "note": "Bundle plan",
+                                    "price": 65000
+                              },
+                              {
+                                    "label": "Apple Music + iCloud 50GB / 1 Year",
+                                    "note": "Bundle plan",
+                                    "price": 100000
+                              }
+                        ]
+                  },
+                  {
+                        "name": "iCloud",
+                        "icon": "iC",
+                        "logo": "https://cdn.freebiesupply.com/images/large/2x/apple-logo-transparent.png",
+                        "tag": "Apple",
+                        "desc": "iCloud storage option for Apple users.",
+                        "glow": "rgba(255,255,255,.20)",
+                        "plans": [
+                              {
+                                    "label": "50GB / 1 Month",
+                                    "note": "Ask admin",
+                                    "price": 15000
+                              },
+                              {
+                                    "label": "200GB / 1 Month",
+                                    "note": "Ask admin",
+                                    "price": 25000
+                              }
+                        ]
+                  }
+            ]
+      },
+      {
+            "category": "Education & Courses",
+            "items": [
+                  {
+                        "name": "Udemy Courses Lifetime Access",
+                        "icon": "U",
+                        "logo": "https://cdn.simpleicons.org/udemy/A435F0",
+                        "tag": "Lifetime",
+                        "desc": "Udemy course lifetime access offer. Choose one course or a three-course bundle; confirm course availability and delivery method with admin before payment.",
+                        "glow": "rgba(163,230,53,.28)",
+                        "plans": [
+                              {
+                                    "label": "1 Course / Lifetime Access",
+                                    "note": "Single course",
+                                    "price": 55000
+                              },
+                              {
+                                    "label": "3 Courses / Lifetime Access",
+                                    "note": "Course bundle",
+                                    "price": 125000
+                              }
+                        ]
+                  }
+            ]
+      }
+];
+
+        const popularNames=["ChatGPT Subscriptions", "Lovable AI Pro", "Claude AI Pro", "Google AI Pro + Google One Storage", "Microsoft 365 Mail Invite", "Adobe Creative Cloud Suite", "Freepik Premium Shared Acc", "Apple Music + iCloud (50GB)", "Udemy Courses Lifetime Access", "Zoom Pro License", "Envato Elements Unlimited", "Entertainment Package 1", "Entertainment Package 2", "Sports Package", "Canva Edu Pro", "TradingView Premium"];
+
+    const I18N = {
+      en: {
+        htmlLang:"en", brandSub:"Digital Store • Myanmar", navProducts:"Products", languageLabel:"Language",
+        heroEyebrow:"⚡ Admin confirmation before payment", heroTitleHighlight:"Premium digital products", heroTitleRest:"for Myanmar users.",
+        heroCopy:"Subscriptions, VPNs, AI tools, design apps, streaming plans, gift cards, cloud storage and boosting services in one mobile-friendly storefront.",
+        browseProducts:"Browse Products", howToOrder:"How to Order", noticeTitle:"Ask Admin before transferring money.",
+        noticeBody:"Some items can be out of stock or have price changes. Confirm product, region, delivery time and payment method first.",
+        statOrder:"Order request available", statPricing:"Myanmar Kyat pricing", statStock:"Stock checked before payment", statDigital:"Apps, AI, VPN, cards & more",
+        searchPlaceholder:"Search products, e.g. Netflix, ChatGPT, Google One, NordVPN...", clear:"Clear", popularTitle:"Popular Picks", popularSubtitle:"Fast-moving items customers usually ask for first.",
+        emptyState:"No products found. Try a different search keyword.", footer:"Biggest Seller Myanmar storefront template. Replace Telegram link, prices, product list and payment instructions with your real business information.",
+        back:"← Back", total:"Total:", itemsWord:"item(s)", checkout:"Checkout", howModalTitle:"How to order", how1:"Choose your product and plan.", how2:"Add it to cart.", how3:"Press Checkout and copy the receipt.", how4:"Send the receipt to admin on Telegram.", how5:"Wait for stock, price, region and payment confirmation before transferring money.",
+        howMyanmar:"<strong>Myanmar:</strong> Choose product → Add to cart → Copy checkout receipt → Send to Telegram admin → Pay only after confirmation.", understand:"I understand", receiptTitle:"Receipt", receiptIntro:"Copy this receipt and send it to admin. Do not pay before admin confirms stock and current price.", close:"Close", copyReceipt:"Copy Receipt", sendTelegram:"Send to Telegram",
+        addedToCart:"Added to cart", askAdminPrice:"Ask Admin", from:"From", customQuote:"Custom Quote", availableItems:"{count} item(s) available in this category.", addToCart:"Add {plan} to Cart", askAdmin:"Ask Admin", detailNotice:"Final stock, region, account type, delivery method and current price must be confirmed by admin before payment.",
+        remove:"Remove", cartEmptyTitle:"Your cart is empty", cartEmptyBody:"Add products to start an order.", receiptHeader:"BIGGEST SELLER MYANMAR ORDER REQUEST", receiptPlan:"Plan", receiptNote:"Note", receiptPrice:"Price", receiptTotal:"Total", receiptMessage:"Please confirm stock, region, delivery time and current price before I pay.", receiptCopied:"Receipt copied", copyFailed:"Copy failed. Select receipt manually.", cartCleared:"Cart cleared", emptyCartToast:"Your cart is empty", addedSuffix:"added to cart"
+      },
+      th: {
+        htmlLang:"th", brandSub:"ร้านดิจิทัล • เมียนมา", navProducts:"สินค้า", languageLabel:"ภาษา",
+        heroEyebrow:"⚡ ยืนยันกับแอดมินก่อนชำระเงิน", heroTitleHighlight:"สินค้าดิจิทัลพรีเมียม", heroTitleRest:"สำหรับผู้ใช้ในเมียนมา",
+        heroCopy:"รวมแพ็กเกจสมาชิก VPN เครื่องมือ AI แอปออกแบบ สตรีมมิง บัตรของขวัญ คลาวด์สตอเรจ และบริการบูสต์ไว้ในหน้าร้านที่ใช้งานง่ายบนมือถือ",
+        browseProducts:"เลือกดูสินค้า", howToOrder:"วิธีสั่งซื้อ", noticeTitle:"กรุณาถามแอดมินก่อนโอนเงิน", noticeBody:"บางรายการอาจหมดสต็อกหรือราคาเปลี่ยนแปลง กรุณายืนยันสินค้า ภูมิภาค เวลาส่งมอบ และวิธีชำระเงินก่อน",
+        statOrder:"ส่งคำสั่งซื้อได้", statPricing:"ราคาสกุลจ๊าตเมียนมา", statStock:"ตรวจสต็อกก่อนชำระเงิน", statDigital:"แอป AI VPN การ์ด และอื่น ๆ",
+        searchPlaceholder:"ค้นหาสินค้า เช่น Netflix, ChatGPT, Google One, NordVPN...", clear:"ล้าง", popularTitle:"รายการยอดนิยม", popularSubtitle:"สินค้าที่ลูกค้ามักสอบถามก่อนเป็นอันดับแรก",
+        emptyState:"ไม่พบสินค้า ลองใช้คำค้นหาอื่น", footer:"เทมเพลตหน้าร้าน Biggest Seller Myanmar กรุณาแก้ลิงก์ Telegram ราคา รายการสินค้า และคำแนะนำการชำระเงินให้ตรงกับธุรกิจจริงของคุณ",
+        back:"← กลับ", total:"รวม:", itemsWord:"รายการ", checkout:"ชำระเงิน", howModalTitle:"วิธีสั่งซื้อ", how1:"เลือกสินค้าและแพ็กเกจ", how2:"เพิ่มลงตะกร้า", how3:"กดชำระเงินแล้วคัดลอกใบสรุปคำสั่งซื้อ", how4:"ส่งใบสรุปให้แอดมินทาง Telegram", how5:"รอการยืนยันสต็อก ราคา ภูมิภาค และการชำระเงินก่อนโอนเงิน",
+        howMyanmar:"<strong>ภาษาไทย:</strong> เลือกสินค้า → เพิ่มลงตะกร้า → คัดลอกใบสรุป → ส่งให้แอดมิน Telegram → โอนเงินหลังจากได้รับการยืนยันเท่านั้น", understand:"เข้าใจแล้ว", receiptTitle:"ใบสรุปคำสั่งซื้อ", receiptIntro:"คัดลอกใบสรุปนี้แล้วส่งให้แอดมิน ห้ามชำระเงินก่อนแอดมินยืนยันสต็อกและราคาปัจจุบัน", close:"ปิด", copyReceipt:"คัดลอกใบสรุป", sendTelegram:"ส่งไป Telegram",
+        addedToCart:"เพิ่มลงตะกร้าแล้ว", askAdminPrice:"ถามแอดมิน", from:"เริ่มต้น", customQuote:"สอบถามราคา", availableItems:"มี {count} รายการในหมวดหมู่นี้", addToCart:"เพิ่ม {plan} ลงตะกร้า", askAdmin:"ถามแอดมิน", detailNotice:"ต้องให้แอดมินยืนยันสต็อก ภูมิภาค ประเภทบัญชี วิธีส่งมอบ และราคาปัจจุบันก่อนชำระเงิน",
+        remove:"ลบ", cartEmptyTitle:"ตะกร้าว่าง", cartEmptyBody:"เพิ่มสินค้าเพื่อเริ่มสั่งซื้อ", receiptHeader:"คำขอสั่งซื้อ BIGGEST SELLER MYANMAR", receiptPlan:"แพ็กเกจ", receiptNote:"หมายเหตุ", receiptPrice:"ราคา", receiptTotal:"รวม", receiptMessage:"กรุณายืนยันสต็อก ภูมิภาค เวลาส่งมอบ และราคาปัจจุบันก่อนที่ฉันจะชำระเงิน", receiptCopied:"คัดลอกใบสรุปแล้ว", copyFailed:"คัดลอกไม่สำเร็จ กรุณาเลือกข้อความเอง", cartCleared:"ล้างตะกร้าแล้ว", emptyCartToast:"ตะกร้าว่าง", addedSuffix:"เพิ่มลงตะกร้าแล้ว"
+      },
+      zh: {
+        htmlLang:"zh-Hans", brandSub:"数字商店 • 缅甸", navProducts:"产品", languageLabel:"语言",
+        heroEyebrow:"⚡ 付款前请先与管理员确认", heroTitleHighlight:"高级数字产品", heroTitleRest:"面向缅甸用户",
+        heroCopy:"在一个适合手机浏览的店铺中购买订阅、VPN、AI 工具、设计应用、流媒体套餐、礼品卡、云存储和增值服务。",
+        browseProducts:"浏览产品", howToOrder:"如何下单", noticeTitle:"转账前请先询问管理员", noticeBody:"部分商品可能缺货或价格变动。请先确认产品、地区、交付时间和付款方式。",
+        statOrder:"可随时提交订单", statPricing:"缅甸 Kyat 标价", statStock:"付款前确认库存", statDigital:"应用、AI、VPN、卡券等",
+        searchPlaceholder:"搜索产品，例如 Netflix、ChatGPT、Google One、NordVPN...", clear:"清除", popularTitle:"热门推荐", popularSubtitle:"客户通常最先询问的热销项目。",
+        emptyState:"未找到产品。请尝试其他关键词。", footer:"Biggest Seller Myanmar 店铺模板。请将 Telegram 链接、价格、产品列表和付款说明替换为真实业务信息。",
+        back:"← 返回", total:"总计:", itemsWord:"件", checkout:"结账", howModalTitle:"如何下单", how1:"选择产品和套餐。", how2:"加入购物车。", how3:"点击结账并复制订单收据。", how4:"通过 Telegram 发送给管理员。", how5:"等待库存、价格、地区和付款确认后再转账。",
+        howMyanmar:"<strong>中文:</strong> 选择产品 → 加入购物车 → 复制订单收据 → 发送给 Telegram 管理员 → 确认后再付款。", understand:"我明白", receiptTitle:"收据", receiptIntro:"复制此收据并发送给管理员。请勿在管理员确认库存和当前价格前付款。", close:"关闭", copyReceipt:"复制收据", sendTelegram:"发送到 Telegram",
+        addedToCart:"已加入购物车", askAdminPrice:"询问管理员", from:"起", customQuote:"询价", availableItems:"此分类有 {count} 个项目。", addToCart:"将 {plan} 加入购物车", askAdmin:"询问管理员", detailNotice:"最终库存、地区、账户类型、交付方式和当前价格必须由管理员确认后才能付款。",
+        remove:"移除", cartEmptyTitle:"购物车为空", cartEmptyBody:"添加产品以开始订单。", receiptHeader:"BIGGEST SELLER MYANMAR 订单请求", receiptPlan:"套餐", receiptNote:"备注", receiptPrice:"价格", receiptTotal:"总计", receiptMessage:"请在我付款前确认库存、地区、交付时间和当前价格。", receiptCopied:"收据已复制", copyFailed:"复制失败，请手动选择收据。", cartCleared:"购物车已清空", emptyCartToast:"购物车为空", addedSuffix:"已加入购物车"
+      },
+      ru: {
+        htmlLang:"ru", brandSub:"Цифровой магазин • Мьянма", navProducts:"Товары", languageLabel:"Язык",
+        heroEyebrow:"⚡ Подтверждение администратора перед оплатой", heroTitleHighlight:"Премиальные цифровые продукты", heroTitleRest:"для пользователей в Мьянме",
+        heroCopy:"Подписки, VPN, AI‑инструменты, приложения для дизайна, стриминговые планы, подарочные карты, облачное хранилище и услуги бустинга в одном удобном мобильном магазине.",
+        browseProducts:"Смотреть товары", howToOrder:"Как заказать", noticeTitle:"Спросите администратора перед переводом денег", noticeBody:"Некоторые товары могут быть не в наличии или иметь другую цену. Сначала подтвердите продукт, регион, срок доставки и способ оплаты.",
+        statOrder:"Заявки доступны", statPricing:"Цены в кьятах Мьянмы", statStock:"Проверка наличия перед оплатой", statDigital:"Приложения, AI, VPN, карты и другое",
+        searchPlaceholder:"Ищите товары, например Netflix, ChatGPT, Google One, NordVPN...", clear:"Очистить", popularTitle:"Популярное", popularSubtitle:"Товары, о которых клиенты обычно спрашивают первыми.",
+        emptyState:"Товары не найдены. Попробуйте другой запрос.", footer:"Шаблон витрины Biggest Seller Myanmar. Замените ссылку Telegram, цены, список товаров и инструкции по оплате на реальные данные бизнеса.",
+        back:"← Назад", total:"Итого:", itemsWord:"товар(ов)", checkout:"Оформить", howModalTitle:"Как заказать", how1:"Выберите продукт и план.", how2:"Добавьте его в корзину.", how3:"Нажмите Checkout и скопируйте чек.", how4:"Отправьте чек администратору в Telegram.", how5:"Дождитесь подтверждения наличия, цены, региона и оплаты перед переводом денег.",
+        howMyanmar:"<strong>Русский:</strong> Выберите продукт → Добавьте в корзину → Скопируйте чек → Отправьте администратору в Telegram → Оплачивайте только после подтверждения.", understand:"Понятно", receiptTitle:"Чек", receiptIntro:"Скопируйте этот чек и отправьте администратору. Не оплачивайте, пока администратор не подтвердит наличие и актуальную цену.", close:"Закрыть", copyReceipt:"Скопировать чек", sendTelegram:"Отправить в Telegram",
+        addedToCart:"Добавлено в корзину", askAdminPrice:"Спросить администратора", from:"От", customQuote:"Уточнить цену", availableItems:"В этой категории доступно: {count}.", addToCart:"Добавить {plan} в корзину", askAdmin:"Спросить администратора", detailNotice:"Окончательное наличие, регион, тип аккаунта, способ доставки и актуальная цена должны быть подтверждены администратором перед оплатой.",
+        remove:"Удалить", cartEmptyTitle:"Корзина пуста", cartEmptyBody:"Добавьте товары, чтобы начать заказ.", receiptHeader:"ЗАПРОС ЗАКАЗА BIGGEST SELLER MYANMAR", receiptPlan:"План", receiptNote:"Примечание", receiptPrice:"Цена", receiptTotal:"Итого", receiptMessage:"Подтвердите наличие, регион, срок доставки и актуальную цену перед моей оплатой.", receiptCopied:"Чек скопирован", copyFailed:"Не удалось скопировать. Выделите чек вручную.", cartCleared:"Корзина очищена", emptyCartToast:"Корзина пуста", addedSuffix:"добавлено в корзину"
+      },
+      my: {
+        htmlLang:"my", brandSub:"ဒစ်ဂျစ်တယ်စတိုး • မြန်မာ", navProducts:"ထုတ်ကုန်များ", languageLabel:"ဘာသာစကား",
+        heroEyebrow:"⚡ ငွေလွှဲမီ Admin အတည်ပြုရန်", heroTitleHighlight:"ပရီမီယမ် ဒစ်ဂျစ်တယ်ထုတ်ကုန်များ", heroTitleRest:"မြန်မာအသုံးပြုသူများအတွက်",
+        heroCopy:"Subscriptions, VPN, AI tools, design apps, streaming plans, gift cards, cloud storage နှင့် boosting services များကို မိုဘိုင်းအသုံးပြုရန်လွယ်ကူသော storefront တစ်ခုထဲတွင် စုစည်းထားပါသည်။",
+        browseProducts:"ထုတ်ကုန်ကြည့်ရန်", howToOrder:"မှာယူနည်း", noticeTitle:"ငွေမလွှဲခင် Admin ကို အရင်မေးပါ။", noticeBody:"တချို့ item များ stock မရှိနိုင်ပါ သို့မဟုတ် ဈေးနှုန်းပြောင်းနိုင်ပါသည်။ Product, region, delivery time နှင့် payment method ကို အရင် confirm လုပ်ပါ။",
+        statOrder:"Order request ပြုလုပ်နိုင်သည်", statPricing:"မြန်မာကျပ်ဈေးနှုန်း", statStock:"ငွေလွှဲမီ stock စစ်ဆေးသည်", statDigital:"Apps, AI, VPN, cards နှင့် အခြားများ",
+        searchPlaceholder:"Product ရှာရန် ဥပမာ Netflix, ChatGPT, Google One, NordVPN...", clear:"ရှင်းမည်", popularTitle:"လူကြိုက်များသော Products", popularSubtitle:"Customer များအများဆုံး မေးလေ့ရှိသော items များ။",
+        emptyState:"Product မတွေ့ပါ။ Keyword အခြားတစ်ခုဖြင့် ပြန်ရှာပါ။", footer:"Biggest Seller Myanmar storefront template ဖြစ်ပါသည်။ Telegram link, prices, product list နှင့် payment instructions များကို သင့်လုပ်ငန်းအချက်အလက်အမှန်များဖြင့် ပြောင်းပါ။",
+        back:"← နောက်သို့", total:"စုစုပေါင်း:", itemsWord:"ခု", checkout:"Checkout", howModalTitle:"မှာယူနည်း", how1:"Product နှင့် plan ကိုရွေးပါ။", how2:"Cart ထဲထည့်ပါ။", how3:"Checkout နှိပ်ပြီး receipt ကို copy လုပ်ပါ။", how4:"Receipt ကို Telegram Admin ထံပို့ပါ။", how5:"Stock, price, region နှင့် payment confirmation ရပြီးမှ ငွေလွှဲပါ။",
+        howMyanmar:"<strong>မြန်မာလို:</strong> Product ရွေး → Cart ထည့် → Checkout Receipt ကို copy → Telegram Admin ကိုပို့ → Confirm ရပြီးမှ ငွေလွှဲပါ။", understand:"နားလည်ပါပြီ", receiptTitle:"Receipt", receiptIntro:"ဒီ receipt ကို copy လုပ်ပြီး Admin ထံပို့ပါ။ Stock နှင့် လက်ရှိဈေးနှုန်း confirm မရခင် ငွေမလွှဲပါနှင့်။", close:"ပိတ်မည်", copyReceipt:"Receipt Copy", sendTelegram:"Telegram သို့ပို့ရန်",
+        addedToCart:"Cart ထဲထည့်ပြီးပါပြီ", askAdminPrice:"Admin ကိုမေးပါ", from:"မှစ၍", customQuote:"ဈေးမေးရန်", availableItems:"ဤ category တွင် {count} item ရှိသည်။", addToCart:"{plan} ကို Cart ထဲထည့်ရန်", askAdmin:"Admin ကိုမေးရန်", detailNotice:"Final stock, region, account type, delivery method နှင့် current price များကို ငွေလွှဲမီ Admin မှ confirm လုပ်ရပါမည်။",
+        remove:"ဖယ်ရှားရန်", cartEmptyTitle:"Cart ထဲမှာ item မရှိပါ", cartEmptyBody:"Order စရန် product ထည့်ပါ။", receiptHeader:"BIGGEST SELLER MYANMAR ORDER REQUEST", receiptPlan:"Plan", receiptNote:"Note", receiptPrice:"Price", receiptTotal:"စုစုပေါင်း", receiptMessage:"ငွေမလွှဲခင် stock, region, delivery time နှင့် current price ကို confirm လုပ်ပေးပါ။", receiptCopied:"Receipt copy ပြီးပါပြီ", copyFailed:"Copy မအောင်မြင်ပါ။ Receipt ကို ကိုယ်တိုင် select လုပ်ပါ။", cartCleared:"Cart ရှင်းပြီးပါပြီ", emptyCartToast:"Cart ထဲမှာ item မရှိပါ", addedSuffix:"Cart ထဲထည့်ပြီးပါပြီ"
+      }
+    };
+
+    const CATEGORY_TEXT = {
+      "All": {th:"ทั้งหมด", zh:"全部", ru:"Все", my:"အားလုံး"},
+      "AI Tools": {th:"เครื่องมือ AI", zh:"AI 工具", ru:"AI‑инструменты", my:"AI Tools"},
+      "Streaming Packages": {th:"แพ็กเกจสตรีมมิง", zh:"流媒体套餐", ru:"Стриминговые пакеты", my:"Streaming Packages"},
+      "Design & Editing": {th:"ออกแบบและตัดต่อ", zh:"设计与编辑", ru:"Дизайн и редактирование", my:"Design & Editing"},
+      "Productivity & Finance": {th:"งานและการเงิน", zh:"效率与金融", ru:"Продуктивность и финансы", my:"Productivity & Finance"},
+      "VPN": {th:"VPN", zh:"VPN", ru:"VPN", my:"VPN"},
+      "Cloud Storage": {th:"พื้นที่เก็บข้อมูลคลาวด์", zh:"云存储", ru:"Облачное хранилище", my:"Cloud Storage"},
+      "Education & Courses": {th:"การศึกษาและคอร์ส", zh:"教育与课程", ru:"Образование и курсы", my:"Education & Courses"}
+    };
+
+    const TAG_TEXT = {
+      "Limited": {th:"จำกัด", zh:"限量", ru:"Лимит", my:"Limited"}, "Research": {th:"วิจัย", zh:"研究", ru:"Поиск", my:"Research"}, "Shared": {th:"แชร์", zh:"共享", ru:"Общий", my:"Shared"}, "Sports": {th:"กีฬา", zh:"体育", ru:"Спорт", my:"Sports"}, "Movies": {th:"ภาพยนตร์", zh:"电影", ru:"Фильмы", my:"Movies"}, "Asian + Movie": {th:"เอเชีย + หนัง", zh:"亚洲 + 电影", ru:"Азия + фильмы", my:"Asian + Movie"}, "Popular": {th:"ยอดนิยม", zh:"热门", ru:"Популярно", my:"လူကြိုက်များ"}, "Music": {th:"เพลง", zh:"音乐", ru:"Музыка", my:"Music"}, "Own Mail": {th:"อีเมลของคุณ", zh:"自有邮箱", ru:"Своя почта", my:"Own Mail"}, "Video": {th:"วิดีโอ", zh:"视频", ru:"Видео", my:"Video"}, "Photo": {th:"รูปภาพ", zh:"图片", ru:"Фото", my:"Photo"}, "1 Device": {th:"1 อุปกรณ์", zh:"1 台设备", ru:"1 устройство", my:"1 Device"}, "Team Plan": {th:"ทีม", zh:"团队", ru:"Команда", my:"Team Plan"}, "License": {th:"ไลเซนส์", zh:"许可证", ru:"Лицензия", my:"License"}, "Office": {th:"ออฟฟิศ", zh:"办公", ru:"Офис", my:"Office"}, "Secure": {th:"ปลอดภัย", zh:"安全", ru:"Безопасно", my:"Secure"}, "Fast": {th:"เร็ว", zh:"快速", ru:"Быстро", my:"Fast"}, "Value": {th:"คุ้มค่า", zh:"高性价比", ru:"Выгодно", my:"Value"}, "AI + Cloud": {th:"AI + คลาวด์", zh:"AI + 云", ru:"AI + облако", my:"AI + Cloud"}, "Music + Cloud": {th:"เพลง + คลาวด์", zh:"音乐 + 云", ru:"Музыка + облако", my:"Music + Cloud"}, "Apple": {th:"Apple", zh:"Apple", ru:"Apple", my:"Apple"}, "Lifetime": {th:"ตลอดชีพ", zh:"终身", ru:"Навсегда", my:"Lifetime"}, "100P + Large Meetings": {th:"100 คน + ห้องใหญ่", zh:"100人 + 大型会议", ru:"100 чел. + большие встречи", my:"100P + Large Meetings"}
+    };
+
+    const PRODUCT_DESC = {
+      th: {
+        "ChatGPT Subscriptions":"รวมตัวเลือกสมัครสมาชิก ChatGPT ทั้ง Plus แบบส่วนตัว/แชร์ และ ChatGPT Go แบบส่วนตัว กรุณายืนยันสต็อกกับแอดมินก่อนชำระเงิน", "Lovable AI Pro":"อัปเกรด Lovable AI Pro สำหรับบัญชีของคุณ ราคาอ้างอิงเว็บไซต์ 25 USD/เดือน", "Super Grok Pro":"แผน Super Grok Pro ระยะยาว สต็อกจำกัด กรุณาสอบถามแอดมินก่อนชำระเงิน", "Perplexity Pro":"แพ็กเกจ AI สำหรับค้นคว้าและค้นหาข้อมูล", "Claude AI Pro":"Claude AI Pro แบบบัญชีแชร์ สำหรับเขียน วิเคราะห์ สรุป และทำงานเอกสาร", "Sports Package":"แพ็กเกจกีฬาที่รวม Peacock, DAZN, NBA, Fubo และ DirecTV แบบกีฬา กรุณายืนยันแอปที่รวมกับแอดมิน", "Entertainment Package 1":"แพ็กเกจบันเทิงพร้อม Netflix, Prime Video, HBO Max, Disney+ และ Paramount+ กรุณายืนยันแอปที่รวมกับแอดมิน", "Entertainment Package 2":"แพ็กเกจบันเทิงพร้อม Prime Video, Netflix, WeTV, Viki Rakuten และ iQIYI กรุณายืนยันแอปที่รวมกับแอดมิน", "Netflix Ultra HD Profiles":"แพ็กเกจโปรไฟล์ Netflix Ultra HD ภูมิภาคและโปรไฟล์ยืนยันโดยแอดมิน", "YouTube Premium":"YouTube ไม่มีโฆษณาและเล่นเบื้องหลังได้", "Spotify Premium":"แพ็กเกจพรีเมียมสำหรับฟังเพลง", "Canva Edu Pro":"Canva Edu Pro พร้อมฟีเจอร์ใกล้เคียง Pro อัปเกรดด้วยอีเมลของคุณ", "CapCut Pro":"เครื่องมือพรีเมียมสำหรับวิดีโอสั้นและคอนเทนต์โซเชียล", "PicsArt Gold":"แต่งภาพ เทมเพลต และฟีเจอร์ครีเอทีฟพรีเมียม", "Adobe Creative Cloud Suite":"Adobe Creative Cloud Suite แบบอัปเกรดอีเมลของคุณ สต็อกจำกัด กรุณายืนยันแอป วิธีเปิดใช้งาน และสต็อกกับแอดมิน", "Envato Elements Unlimited":"แผน Envato Elements Unlimited สำหรับ 1 อุปกรณ์ กรุณายืนยันวิธีเปิดใช้งานและสต็อกกับแอดมิน", "Freepik Premium Shared Acc":"บัญชีแชร์ Freepik Premium สำหรับเวกเตอร์ รูป PSD ไอคอน และไฟล์ออกแบบพรีเมียม", "TradingView Premium":"แผน TradingView Premium แบบเชิญ/อัปเกรดด้วยอีเมลของคุณ กรุณายืนยันสต็อกกับแอดมิน", "Microsoft 365 Mail Invite":"แผน Microsoft 365 Mail Invite แบบทีมสำหรับ Office และเครื่องมือทำงาน กรุณายืนยันวิธีเชิญ ประเภทบัญชี และสต็อก", "Windows License":"ไลเซนส์เปิดใช้งาน Windows", "WPS Office":"สมัครสมาชิกเครื่องมือ Office สำหรับเอกสารและ PDF", "Zoom Pro License":"Zoom Pro 100 คนแบบอัปเกรดบัญชีตัวเอง พร้อมบัตรห้องประชุมใหญ่ 300P, 500P และ 1000P แบบ 1 วัน", "NordVPN":"VPN พรีเมียมสำหรับความเป็นส่วนตัว สตรีมมิง และการใช้งานที่ปลอดภัยขึ้น", "ExpressVPN":"VPN ความเร็วสูงและปลอดภัย เลือกแผน 1 อุปกรณ์หรือ 5 อุปกรณ์", "Surfshark VPN":"VPN ราคาคุ้มค่าพร้อมการรองรับอุปกรณ์ที่ดี", "Google AI Pro + Google One Storage":"รายการ Google รวม AI Pro, Gemini Pro, Drive 2TB family invite, Google One storage และตัวเลือกอัปเกรด 5TB", "Apple Music + iCloud (50GB)":"แพ็กเกจ Apple Music พร้อม iCloud 50GB สำหรับผู้ใช้ Apple กรุณายืนยันภูมิภาค Apple ID วิธีเชิญ และสต็อก", "iCloud":"ตัวเลือกพื้นที่ iCloud สำหรับผู้ใช้ Apple", "Udemy Courses Lifetime Access":"ข้อเสนอคอร์ส Udemy แบบใช้ได้ตลอดชีพ เลือก 1 คอร์สหรือแพ็ก 3 คอร์ส กรุณายืนยันคอร์สและวิธีส่งมอบ"
+      },
+      zh: {
+        "ChatGPT Subscriptions":"ChatGPT 订阅集中列表，包含 Plus 私人/共享方案和 ChatGPT Go 私人方案。付款前请向管理员确认库存。", "Lovable AI Pro":"Lovable AI Pro 自有账户升级。网站参考价：25 美元/月。", "Super Grok Pro":"Super Grok Pro 长期方案。库存有限，付款前请先询问管理员。", "Perplexity Pro":"用于 AI 搜索和研究的订阅。", "Claude AI Pro":"Claude AI Pro 共享账号，适合长文写作、分析、总结和效率工作。", "Sports Package":"体育流媒体组合，包含 Peacock、DAZN、NBA、Fubo 和 DirecTV 类体育访问。请向管理员确认包含的应用。", "Entertainment Package 1":"娱乐套餐，包含 Netflix、Prime Video、HBO Max、Disney+ 和 Paramount+。请向管理员确认包含的应用。", "Entertainment Package 2":"娱乐套餐，包含 Prime Video、Netflix、WeTV、Viki Rakuten 和 iQIYI。请向管理员确认包含的应用。", "Netflix Ultra HD Profiles":"Netflix Ultra HD 个人资料方案。地区/资料由管理员确认。", "YouTube Premium":"无广告 YouTube 和后台播放。", "Spotify Premium":"音乐流媒体高级方案。", "Canva Edu Pro":"Canva Edu Pro，包含类似 Pro 的功能。使用自有邮箱升级。", "CapCut Pro":"适合短视频和社交内容的高级工具。", "PicsArt Gold":"照片编辑、模板和高级创意功能。", "Adobe Creative Cloud Suite":"Adobe Creative Cloud Suite 自有邮箱升级。库存有限，请先确认包含应用、激活方式和可用性。", "Envato Elements Unlimited":"Envato Elements Unlimited 1 台设备方案。请确认激活方式和库存。", "Freepik Premium Shared Acc":"Freepik Premium 共享账号，可使用高级矢量、照片、PSD、图标和设计素材。", "TradingView Premium":"TradingView Premium 方案。自有邮箱邀请/升级，请确认可用性。", "Microsoft 365 Mail Invite":"Microsoft 365 Mail Invite 团队方案，用于 Office 应用和效率访问。请确认邀请方式、邮箱/账号类型和库存。", "Windows License":"Windows 激活许可证。", "WPS Office":"用于文档和 PDF 的 Office 工具订阅。", "Zoom Pro License":"Zoom Pro 100 人自有账号升级，另有 300P、500P、1000P 一日大型会议房间通行证。", "NordVPN":"用于隐私、流媒体和更安全浏览的高级 VPN。", "ExpressVPN":"快速安全的 VPN。可选择 1 台设备或 5 台设备方案。", "Surfshark VPN":"性价比较高的 VPN，设备支持良好。", "Google AI Pro + Google One Storage":"Google 订阅综合列表：Google AI Pro、Gemini Pro、Google Drive 2TB 家庭邀请、Google One 存储和 5TB 升级。", "Apple Music + iCloud (50GB)":"Apple Music 加 iCloud 50GB 组合，适合 Apple 用户。请确认 Apple ID 地区、邀请方式和库存。", "iCloud":"Apple 用户的 iCloud 存储选项。", "Udemy Courses Lifetime Access":"Udemy 课程终身访问优惠。可选 1 门或 3 门课程组合，请确认课程和交付方式。"
+      },
+      ru: {
+        "ChatGPT Subscriptions":"Все варианты подписок ChatGPT в одном списке: Plus личный/общий и ChatGPT Go личный. Перед оплатой подтвердите наличие у администратора.", "Lovable AI Pro":"Апгрейд Lovable AI Pro для собственного аккаунта. Справочная цена на сайте: 25 USD/месяц.", "Super Grok Pro":"Долгосрочный план Super Grok Pro. Ограниченное наличие; спросите администратора перед оплатой.", "Perplexity Pro":"Подписка для AI‑поиска и исследований.", "Claude AI Pro":"Claude AI Pro с общим аккаунтом для длинных текстов, анализа, резюме и продуктивности.", "Sports Package":"Спортивный стриминговый пакет с Peacock, DAZN, NBA, Fubo и доступом в стиле DirecTV. Подтвердите состав приложений у администратора.", "Entertainment Package 1":"Развлекательный пакет с Netflix, Prime Video, HBO Max, Disney+ и Paramount+. Подтвердите включенные приложения у администратора.", "Entertainment Package 2":"Развлекательный пакет с Prime Video, Netflix, WeTV, Viki Rakuten и iQIYI. Подтвердите включенные приложения у администратора.", "Netflix Ultra HD Profiles":"Профиль Netflix Ultra HD. Регион и профиль подтверждает администратор.", "YouTube Premium":"YouTube без рекламы и с фоновым воспроизведением.", "Spotify Premium":"Премиальный план для музыкального стриминга.", "Canva Edu Pro":"Canva Edu Pro с функциями уровня Pro. Апгрейд на вашу почту.", "CapCut Pro":"Премиум‑инструменты для коротких видео и социального контента.", "PicsArt Gold":"Редактирование фото, шаблоны и премиальные творческие функции.", "Adobe Creative Cloud Suite":"Adobe Creative Cloud Suite с апгрейдом на вашу почту. Наличие ограничено; подтвердите приложения, способ активации и доступность.", "Envato Elements Unlimited":"План Envato Elements Unlimited на 1 устройство. Подтвердите способ активации и доступность.", "Freepik Premium Shared Acc":"Общий аккаунт Freepik Premium для премиальных векторов, фото, PSD, иконок и дизайн‑ресурсов.", "TradingView Premium":"План TradingView Premium. Приглашение/апгрейд на вашу почту; подтвердите доступность.", "Microsoft 365 Mail Invite":"Командный план Microsoft 365 Mail Invite для Office и продуктивности. Подтвердите способ приглашения, тип почты/аккаунта и наличие.", "Windows License":"Лицензия активации Windows.", "WPS Office":"Подписка на офисные инструменты для документов и PDF.", "Zoom Pro License":"Zoom Pro на 100 участников с апгрейдом собственного аккаунта, плюс 1‑дневные пропуска для больших комнат 300P, 500P и 1000P.", "NordVPN":"Премиум VPN для приватности, стриминга и более безопасного браузинга.", "ExpressVPN":"Быстрое безопасное VPN‑подключение. Выберите план на 1 или 5 устройств.", "Surfshark VPN":"Бюджетный VPN с хорошей поддержкой устройств.", "Google AI Pro + Google One Storage":"Объединенный список Google: Google AI Pro, Gemini Pro, Google Drive 2TB family invite, Google One storage и варианты апгрейда 5TB.", "Apple Music + iCloud (50GB)":"Пакет Apple Music + iCloud 50GB для пользователей Apple. Подтвердите регион Apple ID, способ приглашения и наличие.", "iCloud":"Вариант iCloud storage для пользователей Apple.", "Udemy Courses Lifetime Access":"Пожизненный доступ к курсам Udemy. Выберите 1 курс или набор из 3; подтвердите наличие курса и способ доставки."
+      },
+      my: {
+        "ChatGPT Subscriptions":"ChatGPT Plus private/shared plans နှင့် ChatGPT Go private plan အပါအဝင် ChatGPT subscription options အားလုံးကို listing တစ်ခုထဲတွင် စုစည်းထားပါသည်။ ငွေလွှဲမီ Admin ထံ stock confirm လုပ်ပါ။", "Lovable AI Pro":"Lovable AI Pro own-account upgrade ဖြစ်ပါသည်။ Website reference price: 25 USD/month.", "Super Grok Pro":"Super Grok Pro long-duration plan ဖြစ်ပါသည်။ Limited stock ဖြစ်နိုင်သောကြောင့် ငွေလွှဲမီ Admin ကိုမေးပါ။", "Perplexity Pro":"AI search နှင့် research subscription ဖြစ်ပါသည်။", "Claude AI Pro":"Claude AI Pro shared account plan ဖြစ်ပြီး long-form writing, analysis, summarizing နှင့် productivity အတွက် အသုံးပြုနိုင်ပါသည်။", "Sports Package":"Peacock, DAZN, NBA, Fubo နှင့် DirecTV style sports access ပါဝင်နိုင်သော sports streaming bundle ဖြစ်ပါသည်။ ပါဝင်သော apps များကို Admin ထံ confirm လုပ်ပါ။", "Entertainment Package 1":"Netflix, Prime Video, HBO Max, Disney+ နှင့် Paramount+ ပါဝင်သော entertainment bundle ဖြစ်ပါသည်။ ပါဝင်သော apps များကို Admin ထံ confirm လုပ်ပါ။", "Entertainment Package 2":"Prime Video, Netflix, WeTV, Viki Rakuten နှင့် iQIYI ပါဝင်သော entertainment bundle ဖြစ်ပါသည်။ ပါဝင်သော apps များကို Admin ထံ confirm လုပ်ပါ။", "Netflix Ultra HD Profiles":"Netflix Ultra HD profile plan ဖြစ်ပါသည်။ Region/profile ကို Admin မှ confirm လုပ်ပါ။", "YouTube Premium":"Ad-free YouTube နှင့် background play ပါဝင်သည်။", "Spotify Premium":"Music streaming premium plan ဖြစ်ပါသည်။", "Canva Edu Pro":"Canva Edu Pro ဖြစ်ပြီး Pro features များနှင့် ဆင်တူပါသည်။ Own mail upgrade.", "CapCut Pro":"Short videos နှင့် social content အတွက် premium tools များ။", "PicsArt Gold":"Photo editing, templates နှင့် premium creative features များ။", "Adobe Creative Cloud Suite":"Adobe Creative Cloud Suite own-mail upgrade ဖြစ်ပါသည်။ Limited stock ဖြစ်နိုင်၍ included apps, activation method နှင့် availability ကို Admin ထံ confirm လုပ်ပါ။", "Envato Elements Unlimited":"One device အတွက် Envato Elements Unlimited plan ဖြစ်ပါသည်။ Activation method နှင့် availability ကို Admin ထံ confirm လုပ်ပါ။", "Freepik Premium Shared Acc":"Premium vectors, photos, PSD files, icons နှင့် design assets အတွက် Freepik Premium shared account ဖြစ်ပါသည်။", "TradingView Premium":"TradingView Premium plan ဖြစ်ပါသည်။ Own mail invite/upgrade; availability ကို Admin ထံ confirm လုပ်ပါ။", "Microsoft 365 Mail Invite":"Office apps နှင့် productivity access အတွက် Microsoft 365 Mail Invite team plan ဖြစ်ပါသည်။ Invite method, mailbox/account type နှင့် availability ကို Admin ထံ confirm လုပ်ပါ။", "Windows License":"Windows activation license ဖြစ်ပါသည်။", "WPS Office":"Documents နှင့် PDFs အတွက် Office tools subscription ဖြစ်ပါသည်။", "Zoom Pro License":"100 participants အတွက် Zoom Pro license own-account upgrade နှင့် 300P/500P/1000P large meeting room 1-day passes များပါဝင်သည်။", "NordVPN":"Privacy, streaming နှင့် safer browsing အတွက် premium VPN ဖြစ်ပါသည်။", "ExpressVPN":"မြန်ဆန်ပြီး လုံခြုံသော VPN connection ဖြစ်ပါသည်။ 1 device သို့မဟုတ် 5-device plan ကိုရွေးပါ။", "Surfshark VPN":"Good device support ပါသော budget-friendly VPN option ဖြစ်ပါသည်။", "Google AI Pro + Google One Storage":"Google AI Pro, Gemini Pro, Google Drive 2TB family invite, Google One storage နှင့် 5TB upgrade options များကို Cloud Storage အောက်တွင် စုစည်းထားပါသည်။", "Apple Music + iCloud (50GB)":"Apple users အတွက် Apple Music plus iCloud 50GB bundle ဖြစ်ပါသည်။ Apple ID region, invite method နှင့် availability ကို Admin ထံ confirm လုပ်ပါ။", "iCloud":"Apple users အတွက် iCloud storage option ဖြစ်ပါသည်။", "Udemy Courses Lifetime Access":"Udemy course lifetime access offer ဖြစ်ပါသည်။ 1 course သို့မဟုတ် 3-course bundle ကိုရွေးနိုင်ပြီး course availability နှင့် delivery method ကို Admin ထံ confirm လုပ်ပါ။"
+      }
+    };
+
+    const SMART_REPLACE = {
+      th: {"Private Account":"บัญชีส่วนตัว","Shared Account":"บัญชีแชร์","Own account upgrade":"อัปเกรดบัญชีของคุณ","Own Account":"บัญชีของคุณ","Own mail upgrade":"อัปเกรดอีเมลของคุณ","Own mail invite":"เชิญอีเมลของคุณ","Shared plan":"แผนแชร์","Admin confirmation required":"ต้องยืนยันกับแอดมิน","Admin setup":"แอดมินตั้งค่า","Ask admin":"ถามแอดมิน","Individual":"รายบุคคล","Family Slot":"ช่องครอบครัว","Promo price":"ราคาโปรโมชัน","Limited stock":"สต็อกจำกัด","Mail invite team plan":"แผนทีมแบบเชิญทางอีเมล","Single device":"อุปกรณ์เดียว","Large meeting room rental":"เช่าห้องประชุมใหญ่","Best value":"คุ้มที่สุด","Bundle plan":"แพ็กเกจรวม","Family invite plan":"แผนครอบครัวแบบเชิญ","Premium shared account":"บัญชีพรีเมียมแชร์","Single course":"คอร์สเดียว","Course bundle":"แพ็กคอร์ส","1 Month":"1 เดือน","3 Months":"3 เดือน","4 Months":"4 เดือน","6 Months":"6 เดือน","1 Year":"1 ปี","2 Years":"2 ปี","3 Years":"3 ปี","5 Years":"5 ปี","6 Years":"6 ปี","1 Day Pass":"บัตร 1 วัน","Lifetime Access":"ใช้ได้ตลอดชีพ","Unlimited plan":"แผนไม่จำกัด"},
+      zh: {"Private Account":"私人账号","Shared Account":"共享账号","Own account upgrade":"自有账号升级","Own Account":"自有账号","Own mail upgrade":"自有邮箱升级","Own mail invite":"自有邮箱邀请","Shared plan":"共享方案","Admin confirmation required":"需管理员确认","Admin setup":"管理员设置","Ask admin":"询问管理员","Individual":"个人","Family Slot":"家庭席位","Promo price":"促销价","Limited stock":"库存有限","Mail invite team plan":"邮箱邀请团队方案","Single device":"单设备","Large meeting room rental":"大型会议室租用","Best value":"最划算","Bundle plan":"组合方案","Family invite plan":"家庭邀请方案","Premium shared account":"高级共享账号","Single course":"单门课程","Course bundle":"课程组合","1 Month":"1个月","3 Months":"3个月","4 Months":"4个月","6 Months":"6个月","1 Year":"1年","2 Years":"2年","3 Years":"3年","5 Years":"5年","6 Years":"6年","1 Day Pass":"1日通行证","Lifetime Access":"终身访问","Unlimited plan":"无限方案"},
+      ru: {"Private Account":"личный аккаунт","Shared Account":"общий аккаунт","Own account upgrade":"апгрейд собственного аккаунта","Own Account":"собственный аккаунт","Own mail upgrade":"апгрейд на свою почту","Own mail invite":"приглашение на свою почту","Shared plan":"общий план","Admin confirmation required":"нужно подтверждение администратора","Admin setup":"настройка администратором","Ask admin":"спросить администратора","Individual":"индивидуально","Family Slot":"семейный слот","Promo price":"промо‑цена","Limited stock":"ограниченное наличие","Mail invite team plan":"командный план с приглашением по почте","Single device":"одно устройство","Large meeting room rental":"аренда большой комнаты","Best value":"лучшее предложение","Bundle plan":"пакетный план","Family invite plan":"семейный план по приглашению","Premium shared account":"премиум общий аккаунт","Single course":"один курс","Course bundle":"набор курсов","1 Month":"1 месяц","3 Months":"3 месяца","4 Months":"4 месяца","6 Months":"6 месяцев","1 Year":"1 год","2 Years":"2 года","3 Years":"3 года","5 Years":"5 лет","6 Years":"6 лет","1 Day Pass":"пропуск на 1 день","Lifetime Access":"пожизненный доступ","Unlimited plan":"безлимитный план"},
+      my: {"Private Account":"Private Account","Shared Account":"Shared Account","Own account upgrade":"Own account upgrade","Own Account":"Own Account","Own mail upgrade":"Own mail upgrade","Own mail invite":"Own mail invite","Shared plan":"Shared plan","Admin confirmation required":"Admin confirmation required","Admin setup":"Admin setup","Ask admin":"Admin ကိုမေးပါ","Individual":"Individual","Family Slot":"Family Slot","Promo price":"Promo price","Limited stock":"Limited stock","Mail invite team plan":"Mail invite team plan","Single device":"Single device","Large meeting room rental":"Large meeting room rental","Best value":"Best value","Bundle plan":"Bundle plan","Family invite plan":"Family invite plan","Premium shared account":"Premium shared account","Single course":"Single course","Course bundle":"Course bundle","1 Month":"1 လ","3 Months":"3 လ","4 Months":"4 လ","6 Months":"6 လ","1 Year":"1 နှစ်","2 Years":"2 နှစ်","3 Years":"3 နှစ်","5 Years":"5 နှစ်","6 Years":"6 နှစ်","1 Day Pass":"1 ရက် Pass","Lifetime Access":"Lifetime Access","Unlimited plan":"Unlimited plan"}
+    };
+
+
+    const state={cart:[],activeCategory:"All",search:"",selectedProduct:null,selectedPlanIndex:0,lang:"en"};
+    const qs=s=>document.querySelector(s), qsa=s=>Array.from(document.querySelectorAll(s));
+    const current=()=>I18N[state.lang]||I18N.en;
+    const t=(key,vars={})=>String((current()[key]??I18N.en[key]??key)).replace(/\{(\w+)\}/g,(_,k)=>vars[k]??"");
+    const trMap=(map,key)=>state.lang==="en"?key:(map[key]?.[state.lang]||key);
+    const catName=c=>trMap(CATEGORY_TEXT,c);
+    const tagName=tag=>trMap(TAG_TEXT,tag);
+    const smartText=text=>{
+      if(state.lang==="en")return text;
+      let out=text;
+      Object.entries(SMART_REPLACE[state.lang]||{}).sort((a,b)=>b[0].length-a[0].length).forEach(([from,to])=>{out=out.split(from).join(to)});
+      return out;
+    };
+    const productDesc=p=>PRODUCT_DESC[state.lang]?.[p.name]||p.desc;
+    const planLabel=label=>smartText(label);
+    const planNote=note=>smartText(note);
+    const money=v=>v===0?t("askAdminPrice"):v.toLocaleString("en-US")+" Ks";
+    const allProducts=()=>products.flatMap(g=>g.items.map(i=>({...i,category:g.category})));
+    const escapeHtml=value=>String(value).replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[ch]));
+
+    function toast(msg){const el=qs("#toast");el.textContent=msg;el.classList.add("show");clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.classList.remove("show"),1500)}
+    function visual(p){return p.logo?`<img src="${escapeHtml(p.logo)}" alt="${escapeHtml(p.name)} logo" loading="lazy">`:escapeHtml(p.icon)}
+    function card(p){const min=p.plans.find(x=>x.price>0)?.price||0;return `<article class="product-card" style="--glow:${escapeHtml(p.glow)}" tabindex="0" role="button" data-product="${escapeHtml(p.name)}"><div class="product-icon">${visual(p)}</div><h3>${escapeHtml(p.name)}</h3><div class="mini">${escapeHtml(productDesc(p))}</div><div class="price"><span>${min?escapeHtml(t("from"))+" "+escapeHtml(money(min)):escapeHtml(t("customQuote"))}</span><span class="chip">${escapeHtml(tagName(p.tag))}</span></div></article>`}
+    function renderTabs(){const cats=["All",...products.map(g=>g.category)];qs("#tabs").innerHTML=cats.map(c=>`<button class="tab ${c===state.activeCategory?"active":""}" data-category="${escapeHtml(c)}">${escapeHtml(catName(c))}</button>`).join("");qsa(".tab").forEach(tab=>tab.onclick=()=>{state.activeCategory=tab.dataset.category;renderProducts();renderTabs()})}
+    function matches(p){const k=state.search.trim().toLowerCase();const searchable=[p.name,p.category,catName(p.category),p.tag,tagName(p.tag),p.desc,productDesc(p)].join(" ").toLowerCase();return (state.activeCategory==="All"||p.category===state.activeCategory)&&(!k||searchable.includes(k))}
+    function renderProducts(){const pop=allProducts().filter(p=>popularNames.includes(p.name)&&matches(p));qs("#popular-grid").innerHTML=pop.map(card).join("");const sections=products.map(g=>{const f=g.items.map(i=>({...i,category:g.category})).filter(matches);return f.length?`<div class="section-title"><div><h2>${escapeHtml(catName(g.category))}</h2><p>${escapeHtml(t("availableItems",{count:f.length}))}</p></div></div><div class="grid">${f.map(card).join("")}</div>`:""}).join("");qs("#sections").innerHTML=sections;qs("#empty-state").style.display=(pop.length||sections.trim())?"none":"block";qsa(".product-card").forEach(c=>{c.onclick=()=>openProduct(c.dataset.product);c.onkeydown=e=>{if(e.key==="Enter"||e.key===" ")openProduct(c.dataset.product)}})}
+    function openProduct(name){const p=allProducts().find(x=>x.name===name);if(!p)return;state.selectedProduct=p;state.selectedPlanIndex=0;renderDetail();qs("#home-view").classList.remove("active");qs("#detail-view").classList.add("active");scrollTo({top:0,behavior:"smooth"})}
+    function renderDetail(){const p=state.selectedProduct, selected=p.plans[state.selectedPlanIndex];qs("#detail-card").innerHTML=`<div class="detail-visual" style="--glow:${escapeHtml(p.glow)}"><div class="detail-mark">${visual(p)}</div></div><div class="detail-info"><div class="eyebrow">${escapeHtml(catName(p.category))} • ${escapeHtml(tagName(p.tag))}</div><h2>${escapeHtml(p.name)}</h2><p class="desc">${escapeHtml(productDesc(p))}</p><div class="plans">${p.plans.map((pl,i)=>`<div class="plan ${i===state.selectedPlanIndex?"active":""}" data-plan-index="${i}"><div><strong>${escapeHtml(planLabel(pl.label))}</strong><small>${escapeHtml(planNote(pl.note))}</small></div><strong>${escapeHtml(money(pl.price))}</strong></div>`).join("")}</div><button class="btn btn-primary" id="add-selected">${escapeHtml(t("addToCart",{plan:planLabel(selected.label)}))}</button> <button class="btn btn-secondary" id="ask-admin">${escapeHtml(t("askAdmin"))}</button><div class="notice">${escapeHtml(t("detailNotice"))}</div></div>`;qsa(".plan").forEach(el=>el.onclick=()=>{state.selectedPlanIndex=Number(el.dataset.planIndex);renderDetail()});qs("#add-selected").onclick=()=>addCart(p,p.plans[state.selectedPlanIndex]);qs("#ask-admin").onclick=()=>window.open(`https://t.me/biggestseller1?text=${encodeURIComponent("Hello admin, I want to ask about "+p.name+".")}`,"_blank")}
+    function addCart(p,pl){state.cart.push({id:Date.now()+Math.random(),name:p.name,category:p.category,plan:pl.label,note:pl.note,price:pl.price});renderCart();qs("#cart-bar").classList.remove("collapsed");toast(`${p.name} ${t("addedSuffix")}`)}
+    function renderCart(){const total=state.cart.reduce((s,i)=>s+i.price,0);qs("#cart-total-label").textContent=t("total");qs("#cart-total").textContent=money(total);qs("#cart-count").textContent=state.cart.length;qs("#cart-items-label").textContent=t("itemsWord");qs("#cart-items").innerHTML=state.cart.length?state.cart.map(i=>`<div class="cart-item"><div><strong>${escapeHtml(i.name)}</strong><small>${escapeHtml(planLabel(i.plan))} • ${escapeHtml(planNote(i.note))}</small></div><strong>${escapeHtml(money(i.price))}</strong><button class="remove" data-remove="${i.id}">${escapeHtml(t("remove"))}</button></div>`).join(""):`<div class="cart-item"><div><strong>${escapeHtml(t("cartEmptyTitle"))}</strong><small>${escapeHtml(t("cartEmptyBody"))}</small></div></div>`;qsa("[data-remove]").forEach(b=>b.onclick=()=>{state.cart=state.cart.filter(i=>String(i.id)!==b.dataset.remove);renderCart()})}
+    function receipt(){return [t("receiptHeader"),"--------------------------------------",...state.cart.flatMap((i,n)=>[`${n+1}. ${i.name}`,`   ${t("receiptPlan")}: ${planLabel(i.plan)}`,`   ${t("receiptNote")}: ${planNote(i.note)}`,`   ${t("receiptPrice")}: ${money(i.price)}`]),"--------------------------------------",`${t("receiptTotal")}: ${money(state.cart.reduce((s,i)=>s+i.price,0))}`,"",t("receiptMessage")].join("\n")}
+    function openReceipt(){if(!state.cart.length)return toast(t("emptyCartToast"));qs("#receipt-box").textContent=receipt();qs("#receipt-modal").classList.add("active")}
+    async function copyReceipt(){try{await navigator.clipboard.writeText(receipt());toast(t("receiptCopied"))}catch(e){toast(t("copyFailed"))}}
+    function home(){qs("#detail-view").classList.remove("active");qs("#home-view").classList.add("active");scrollTo({top:0,behavior:"smooth"})}
+    function applyStaticTranslations(){document.documentElement.lang=current().htmlLang;document.title="Biggest Seller Myanmar";qsa("[data-i18n]").forEach(el=>{el.textContent=t(el.dataset.i18n)});qsa("[data-i18n-html]").forEach(el=>{el.innerHTML=t(el.dataset.i18nHtml)});qsa("[data-i18n-placeholder]").forEach(el=>{el.placeholder=t(el.dataset.i18nPlaceholder)});if(qs("#receipt-modal").classList.contains("active"))qs("#receipt-box").textContent=receipt()}
+    function setLanguage(lang){state.lang=I18N[lang]?lang:"en";localStorage.setItem("bsmLanguage",state.lang);const select=qs("#language-select");if(select)select.value=state.lang;applyStaticTranslations();renderTabs();renderProducts();renderCart();if(qs("#detail-view").classList.contains("active")&&state.selectedProduct)renderDetail()}
+    function initLanguage(){const saved=localStorage.getItem("bsmLanguage")||"en";qs("#language-select").onchange=e=>setLanguage(e.target.value);setLanguage(saved)}
+
+    qs("#search").oninput=e=>{state.search=e.target.value;qs("#clear-search").style.display=state.search?"inline-flex":"none";renderProducts()}
+    qs("#clear-search").onclick=()=>{state.search="";qs("#search").value="";qs("#clear-search").style.display="none";renderProducts()}
+    qs("#how-btn").onclick=()=>qs("#how-modal").classList.add("active");qs("#back-to-home").onclick=home;qs("#home-link").onclick=e=>{e.preventDefault();home()}
+    qs("#cart-toggle").onclick=()=>qs("#cart-bar").classList.toggle("collapsed");qs("#clear-cart").onclick=()=>{state.cart=[];renderCart();toast(t("cartCleared"))};qs("#checkout").onclick=openReceipt;qs("#copy-receipt").onclick=copyReceipt;
+    qsa("[data-close]").forEach(b=>b.onclick=()=>qs("#"+b.dataset.close).classList.remove("active"));qsa(".overlay").forEach(o=>o.onclick=e=>{if(e.target===o)o.classList.remove("active")});
+
+    function stars(){const c=qs("#starfield"),ctx=c.getContext("2d"),stars=[];function resize(){c.width=innerWidth*devicePixelRatio;c.height=innerHeight*devicePixelRatio;ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0)}function seed(){stars.length=0;for(let i=0;i<115;i++)stars.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.7+.35,s:Math.random()*.35+.08,a:Math.random()*.7+.2})}function draw(){ctx.clearRect(0,0,innerWidth,innerHeight);stars.forEach(st=>{st.y+=st.s;if(st.y>innerHeight){st.y=-3;st.x=Math.random()*innerWidth}ctx.beginPath();ctx.arc(st.x,st.y,st.r,0,Math.PI*2);ctx.fillStyle=`rgba(255,255,255,${st.a})`;ctx.fill()});requestAnimationFrame(draw)}addEventListener("resize",()=>{resize();seed()});resize();seed();draw()}
+    initLanguage();stars();
+  </script>
+</body>
+</html>

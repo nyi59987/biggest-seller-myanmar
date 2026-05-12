@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Biggest Seller Myanmar</title>
+  <meta name="description" content="Biggest Seller Myanmar digital products store."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Serif+Myanmar:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#060914; --bg2:#0c1226; --card:rgba(255,255,255,.085);
+      --card2:rgba(255,255,255,.13); --line:rgba(255,255,255,.16);
+      --text:#eef4ff; --muted:#aeb8cf; --gold:#ffd36a; --orange:#ff8a3d;
+      --red:#ff4f6d; --green:#22d3a6; --blue:#5aa9ff; --shadow:0 24px 80px rgba(0,0,0,.36);
+      --radius:22px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; min-height:100vh; color:var(--text);
+      font-family:Inter,"Noto Serif Myanmar",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%,rgba(255,211,106,.20),transparent 27%),
+        radial-gradient(circle at 84% 15%,rgba(90,169,255,.20),transparent 30%),
+        radial-gradient(circle at 50% 100%,rgba(255,79,109,.13),transparent 36%),
+        linear-gradient(180deg,var(--bg),#0b1124 58%,var(--bg));
+      overflow-x:hidden; padding-bottom:118px;
+    }
+    #starfield{position:fixed;inset:0;z-index:-1;width:100%;height:100%;opacity:.68}
+    a{color:inherit}.shell{width:min(1180px,calc(100% - 28px));margin:auto}
+    header{position:sticky;top:0;z-index:30;background:rgba(6,9,20,.70);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+    .logo{width:46px;height:46px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,var(--gold),var(--orange),var(--red));color:#1d1207;font-weight:900;letter-spacing:-.08em;box-shadow:0 14px 38px rgba(255,138,61,.28);flex:0 0 auto}
+    .brand strong{display:block;font-size:clamp(18px,4.5vw,26px);letter-spacing:-.04em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .brand span{display:block;margin-top:4px;color:var(--muted);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+    .pill,.btn,.back-btn,.tab,.remove{transition:.18s ease}
+    .pill{border:1px solid var(--line);background:rgba(255,255,255,.08);border-radius:999px;padding:10px 14px;text-decoration:none;font-weight:800;font-size:13px;white-space:nowrap}
+    .pill:hover,.btn:hover,.back-btn:hover,.tab:hover{transform:translateY(-2px);filter:brightness(1.06)}
+    .nav-actions{display:flex;align-items:center;gap:10px}
+    .hero{display:grid;grid-template-columns:1.14fr .86fr;gap:22px;align-items:stretch;padding:34px 0 18px}
+    .hero-card,.trust-card,.detail-card,.modal{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.11),rgba(255,255,255,.06));border-radius:calc(var(--radius) + 8px);box-shadow:var(--shadow);overflow:hidden}
+    .hero-card{padding:clamp(22px,5vw,46px);position:relative}
+    .hero-card:after{content:"";position:absolute;width:280px;height:280px;border-radius:50%;right:-92px;bottom:-130px;background:radial-gradient(circle,rgba(255,211,106,.33),transparent 65%);pointer-events:none}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(255,211,106,.13);border:1px solid rgba(255,211,106,.28);color:var(--gold);font-size:13px;font-weight:900;margin-bottom:18px}
+    h1{margin:0;font-size:clamp(38px,8vw,80px);line-height:.9;letter-spacing:-.07em;max-width:760px}
+    .gradient-text{background:linear-gradient(90deg,#fff,var(--gold) 46%,var(--orange));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-copy{max-width:650px;color:var(--muted);font-size:clamp(15px,2.6vw,18px);line-height:1.7;margin:18px 0 0}
+    .hero-buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+    .btn{border:0;border-radius:16px;padding:13px 17px;cursor:pointer;font-weight:900;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px}
+    .btn-primary{color:#1d1207;background:linear-gradient(135deg,var(--gold),var(--orange));box-shadow:0 16px 42px rgba(255,138,61,.24)}
+    .btn-secondary{color:var(--text);background:rgba(255,255,255,.10);border:1px solid var(--line)}
+    .trust-card{padding:22px;display:grid;gap:14px;align-content:center}
+    .stat{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:17px;border-radius:20px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.11)}
+    .stat strong{display:block;font-size:24px}.stat span{color:var(--muted);font-size:13px}.stat b{font-size:26px}
+    .notice{margin-top:14px;padding:15px 17px;border-radius:18px;border:1px solid rgba(34,211,166,.25);background:rgba(34,211,166,.10);color:#c8fff1;line-height:1.55;font-size:14px}
+    .search-wrap{position:sticky;top:76px;z-index:25;padding:12px 0;background:linear-gradient(180deg,rgba(6,9,20,.94),rgba(6,9,20,.72));backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .searchbar{display:flex;align-items:center;gap:10px;border:1px solid var(--line);background:rgba(255,255,255,.09);border-radius:20px;padding:8px 10px 8px 16px;box-shadow:0 12px 35px rgba(0,0,0,.18)}
+    .searchbar input{width:100%;border:0;outline:0;background:transparent;color:var(--text);min-height:44px;font-size:16px}.searchbar input::placeholder{color:rgba(238,244,255,.52)}
+    .category-tabs{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding:12px 0 0}.category-tabs::-webkit-scrollbar{display:none}
+    .tab{white-space:nowrap;border:1px solid var(--line);background:rgba(255,255,255,.07);color:var(--text);border-radius:999px;padding:9px 13px;cursor:pointer;font-weight:900;font-size:13px}
+    .tab.active{background:linear-gradient(135deg,rgba(255,211,106,.28),rgba(255,138,61,.20));border-color:rgba(255,211,106,.45);color:#fff7dd}
+    .section-title{margin:34px 0 15px;display:flex;align-items:end;justify-content:space-between;gap:14px}.section-title h2{margin:0;font-size:clamp(23px,4vw,34px);letter-spacing:-.04em}.section-title p{margin:6px 0 0;color:var(--muted);font-size:14px}
+    .grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
+    .product-card{position:relative;border:1px solid rgba(255,255,255,.14);background:linear-gradient(180deg,rgba(255,255,255,.11),rgba(255,255,255,.065));border-radius:var(--radius);padding:15px;min-height:190px;box-shadow:0 12px 36px rgba(0,0,0,.18);cursor:pointer;overflow:hidden}
+    .product-card:hover{transform:translateY(-5px);border-color:rgba(255,211,106,.45);background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.08))}
+    .product-card:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 25% 10%,var(--glow,rgba(255,211,106,.22)),transparent 52%);pointer-events:none}
+    .product-icon{position:relative;width:68px;height:68px;border-radius:20px;display:grid;place-items:center;font-weight:900;font-size:25px;margin-bottom:12px;background:linear-gradient(135deg,rgba(255,255,255,.22),rgba(255,255,255,.08));border:1px solid rgba(255,255,255,.18);padding:10px;overflow:hidden}.product-icon img{max-width:100%;max-height:100%;width:100%;height:100%;object-fit:contain;display:block}
+    .product-card h3{position:relative;margin:0 0 8px;font-size:15px;line-height:1.25;letter-spacing:-.02em}.mini{position:relative;color:var(--muted);font-size:12px;line-height:1.45;min-height:35px}
+    .price{position:relative;margin-top:12px;display:flex;justify-content:space-between;align-items:center;gap:8px;color:var(--gold);font-weight:900;font-size:14px}.chip{font-size:11px;color:#d7fff4;padding:4px 7px;border-radius:999px;background:rgba(34,211,166,.12);border:1px solid rgba(34,211,166,.24)}
+    .empty{display:none;margin:34px 0;padding:28px;border-radius:24px;background:rgba(255,255,255,.07);border:1px solid var(--line);color:var(--muted);text-align:center}.view{display:none}.view.active{display:block}
+    .detail-page{padding:24px 0 120px}.back-btn{border:1px solid var(--line);background:rgba(255,255,255,.09);color:var(--text);border-radius:999px;padding:11px 14px;font-weight:900;cursor:pointer;margin-bottom:16px}
+    .detail-card{display:grid;grid-template-columns:310px 1fr;gap:22px;padding:clamp(18px,4vw,30px)}.detail-visual{min-height:310px;border-radius:28px;display:grid;place-items:center;text-align:center;border:1px solid rgba(255,255,255,.16);background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.20),rgba(255,255,255,.06));position:relative;overflow:hidden}
+    .detail-visual:before{content:"";position:absolute;width:270px;height:270px;border-radius:50%;background:var(--glow,rgba(255,211,106,.22));filter:blur(12px);opacity:.55}.detail-mark{position:relative;width:150px;height:150px;border-radius:42px;display:grid;place-items:center;font-size:56px;font-weight:900;background:linear-gradient(135deg,rgba(255,255,255,.25),rgba(255,255,255,.08));border:1px solid rgba(255,255,255,.24);padding:24px;overflow:hidden}.detail-mark img{max-width:100%;max-height:100%;width:100%;height:100%;object-fit:contain;display:block}
+    .detail-info h2{margin:0 0 8px;font-size:clamp(30px,6vw,56px);letter-spacing:-.06em}.desc{color:var(--muted);line-height:1.7;margin-bottom:18px}.plans{display:grid;gap:10px;margin:16px 0 22px}
+    .plan{display:flex;justify-content:space-between;align-items:center;gap:14px;border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.07);border-radius:18px;padding:14px;cursor:pointer}.plan:hover,.plan.active{border-color:rgba(255,211,106,.50);background:rgba(255,211,106,.12)}.plan small{color:var(--muted);display:block;margin-top:3px}.plan strong:last-child{color:var(--gold);white-space:nowrap}
+    .cart-bar{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);width:min(1180px,calc(100% - 24px));z-index:40;border:1px solid rgba(255,255,255,.18);background:rgba(10,15,29,.86);backdrop-filter:blur(22px);border-radius:24px;box-shadow:0 22px 70px rgba(0,0,0,.44);overflow:hidden}.cart-top{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;padding:12px}.cart-toggle{width:40px;height:40px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.08);color:var(--text);cursor:pointer}.cart-total{font-weight:900;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.cart-total span:first-child{color:var(--gold)}.cart-actions{display:flex;gap:8px}.cart-actions .btn{padding:10px 12px;min-height:40px;border-radius:14px;font-size:13px}.cart-items{display:grid;gap:8px;max-height:230px;overflow:auto;padding:0 12px 12px}.cart-bar.collapsed .cart-items{display:none}.cart-item{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:10px;padding:10px 12px;border-radius:15px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.10)}.cart-item small{color:var(--muted);display:block;margin-top:2px}.remove{color:#ffd1d7;background:rgba(255,79,109,.12);border:1px solid rgba(255,79,109,.24);border-radius:12px;padding:8px 10px;cursor:pointer}
+    .overlay{position:fixed;inset:0;z-index:60;display:none;place-items:center;padding:18px;background:rgba(0,0,0,.68);backdrop-filter:blur(12px)}.overlay.active{display:grid}.modal{width:min(720px,100%);max-height:calc(100vh - 36px);overflow:auto;background:linear-gradient(180deg,rgba(19,27,49,.98),rgba(9,13,25,.98));padding:24px}.modal h2{margin:0 0 12px;letter-spacing:-.04em}.modal p,.modal li{color:var(--muted);line-height:1.65}.modal ul{padding-left:20px}.receipt-box{white-space:pre-wrap;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.13);border-radius:18px;padding:16px;color:#eaf2ff;line-height:1.55;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}.modal-actions{display:flex;flex-wrap:wrap;justify-content:end;gap:10px;margin-top:18px}.toast{position:fixed;left:50%;bottom:102px;transform:translateX(-50%) translateY(20px);z-index:80;opacity:0;pointer-events:none;background:rgba(17,24,39,.92);border:1px solid rgba(255,255,255,.16);padding:12px 16px;border-radius:999px;box-shadow:0 15px 40px rgba(0,0,0,.35);transition:.22s ease;font-weight:900;font-size:13px}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    footer{margin:42px 0 20px;color:var(--muted);text-align:center;font-size:13px;line-height:1.7}
+    @media(max-width:980px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(4,minmax(0,1fr))}.detail-card{grid-template-columns:1fr}.detail-visual{min-height:230px}.nav-actions .pill:first-child{display:none}}
+    @media(max-width:680px){body{padding-bottom:132px}.shell{width:min(100% - 20px,1180px)}.nav{min-height:68px}.brand span{display:none}.logo{width:42px;height:42px}.hero{padding-top:18px}.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.product-card{min-height:165px;padding:12px;border-radius:18px}.product-icon{width:54px;height:54px;font-size:20px;border-radius:17px}.product-card h3{font-size:13px}.mini{font-size:11px;min-height:32px}.price{font-size:12px;flex-direction:column;align-items:flex-start;gap:5px}.search-wrap{top:68px}.cart-top{grid-template-columns:auto 1fr}.cart-actions{grid-column:1/-1}.cart-actions .btn{width:100%}.cart-item{grid-template-columns:1fr auto}.cart-item>strong{grid-column:2;grid-row:1}.remove{grid-column:2;grid-row:2}.modal{padding:18px;border-radius:24px}}
+    @media(max-width:400px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  </style>
+</head>
+<body>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+
+  <header>
+    <div class="shell nav">
+      <a class="brand" href="#" id="home-link" aria-label="Go home">
+        <div class="logo">BS</div>
+        <div><strong>Biggest Seller Myanmar</strong><span>Digital Store • Myanmar</span></div>
+      </a>
+      <div class="nav-actions">
+        <a href="#products" class="pill">Products</a>
+        <a href="https://t.me/biggestseller1" target="_blank" rel="noopener" class="pill">Telegram</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="home-view" class="view active">
+    <section class="shell hero">
+      <div class="hero-card">
+        <div class="eyebrow">⚡ Admin confirmation before payment</div>
+        <h1><span class="gradient-text">Premium digital products</span> for Myanmar users.</h1>
+        <p class="hero-copy">
+          Subscriptions, VPNs, AI tools, design apps, streaming plans, gift cards, cloud storage and boosting services in one mobile-friendly storefront.
+        </p>
+        <div class="hero-buttons">
+          <a href="#products" class="btn btn-primary">Browse Products</a>
+          <button class="btn btn-secondary" id="how-btn">How to Order</button>
+        </div>
+        <div class="notice">
+          <strong>မငွေလွှဲခင် Admin ကို အရင်မေးပါ။</strong><br>
+          Some items can be out of stock or have price changes. Confirm product, region, delivery time and payment method first.
+        </div>
+      </div>
+      <aside class="trust-card" aria-label="Store highlights">
+        <div class="stat"><div><strong>24/7</strong><span>Order request available</span></div><b>🛒</b></div>
+        <div class="stat"><div><strong>MMK</strong><span>Myanmar Kyat pricing</span></div><b>💳</b></div>
+        <div class="stat"><div><strong>Admin</strong><span>Stock checked before payment</span></div><b>✅</b></div>
+        <div class="stat"><div><strong>Digital</strong><span>Apps, AI, VPN, cards & more</span></div><b>📱</b></div>
+      </aside>
+    </section>
+
+    <section class="search-wrap" id="products">
+      <div class="shell">
+        <div class="searchbar">
+          <span>🔎</span>
+          <input id="search" type="text" placeholder="Search products, e.g. Netflix, ChatGPT, NordVPN..." autocomplete="off"/>
+          <button class="btn btn-secondary" id="clear-search" style="display:none;min-height:38px;padding:8px 11px;border-radius:12px;">Clear</button>
+        </div>
+        <div class="category-tabs" id="tabs"></div>
+      </div>
+    </section>
+
+    <section class="shell">
+      <div class="section-title"><div><h2>Popular Picks</h2><p>Fast-moving items customers usually ask for first.</p></div></div>
+      <div class="grid" id="popular-grid"></div>
+      <div id="sections"></div>
+      <div class="empty" id="empty-state">No products found. Try a different search keyword.</div>
+    </section>
+
+    <footer class="shell">
+      Biggest Seller Myanmar storefront template. Replace Telegram link, prices, product list and payment instructions with your real business information.
+    </footer>
+  </main>
+
+  <main id="detail-view" class="view detail-page">
+    <div class="shell">
+      <button class="back-btn" id="back-to-home">← Back</button>
+      <div class="detail-card" id="detail-card"></div>
+    </div>
+  </main>
+
+  <div class="cart-bar collapsed" id="cart-bar">
+    <div class="cart-top">
+      <button class="cart-toggle" id="cart-toggle" aria-label="Toggle cart">▲</button>
+      <div class="cart-total">Total: <span id="cart-total">0 Ks</span> • <span id="cart-count">0</span> item(s)</div>
+      <div class="cart-actions">
+        <button class="btn btn-secondary" id="clear-cart">Clear</button>
+        <button class="btn btn-primary" id="checkout">Checkout</button>
+      </div>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+  </div>
+
+  <div class="overlay" id="how-modal" role="dialog" aria-modal="true" aria-label="How to order">
+    <div class="modal">
+      <h2>How to order</h2>
+      <ul>
+        <li>Choose your product and plan.</li>
+        <li>Add it to cart.</li>
+        <li>Press Checkout and copy the receipt.</li>
+        <li>Send the receipt to admin on Telegram.</li>
+        <li>Wait for stock, price, region and payment confirmation before transferring money.</li>
+      </ul>
+      <p><strong>မြန်မာလို:</strong> Product ရွေး → Cart ထည့် → Checkout Receipt ကို copy → Telegram Admin ကိုပို့ → Confirm ရပြီးမှ ငွေလွှဲပါ။</p>
+      <div class="modal-actions"><button class="btn btn-primary" data-close="how-modal">I understand</button></div>
+    </div>
+  </div>
+
+  <div class="overlay" id="receipt-modal" role="dialog" aria-modal="true" aria-label="Checkout receipt">
+    <div class="modal">
+      <h2>Receipt</h2>
+      <p>Copy this receipt and send it to admin. Do not pay before admin confirms stock and current price.</p>
+      <div class="receipt-box" id="receipt-box"></div>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" data-close="receipt-modal">Close</button>
+        <button class="btn btn-primary" id="copy-receipt">Copy Receipt</button>
+        <a class="btn btn-primary" href="https://t.me/biggestseller1" target="_blank" rel="noopener">Send to Telegram</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">Added to cart</div>
+
+  <script>
+    // Telegram contact link is set to biggestseller1.
+    const products = [
+      {category:"AI Tools",items:[
+        {name:"ChatGPT Plus",icon:"GPT",logo:"https://cdn.worldvectorlogo.com/logos/openai-2.svg",tag:"Shared",desc:"ChatGPT Plus shared account plan for writing, coding, study and business.",glow:"rgba(34,211,166,.32)",plans:[{label:"3 Months",note:"Shared account",price:45000},{label:"6 Months",note:"Shared account",price:70000},{label:"1 Year",note:"Shared account",price:120000}]},
+        {name:"Gemini Pro",icon:"G",logo:"https://cdn.simpleicons.org/googlegemini/8E75FF",tag:"AI",desc:"Google AI plan for productivity, research and content creation.",glow:"rgba(90,169,255,.32)",plans:[{label:"1 Month",note:"Admin activation",price:95000}]},
+        {name:"Claude Pro",icon:"C",logo:"https://cdn.simpleicons.org/anthropic/FFFFFF",tag:"AI",desc:"Long-form writing, analysis and summarizing support.",glow:"rgba(255,138,61,.28)",plans:[{label:"1 Month",note:"Limited stock",price:120000}]},
+        {name:"Perplexity Pro",icon:"P",logo:"https://cdn.simpleicons.org/perplexity/20B8CD",tag:"Research",desc:"AI search and research subscription.",glow:"rgba(255,211,106,.30)",plans:[{label:"1 Month",note:"Admin confirmation required",price:95000}]}
+      ]},
+      {category:"Streaming & Music",items:[
+        {name:"Netflix Ultra HD Profiles",icon:"N",logo:"https://cdn.simpleicons.org/netflix/E50914",tag:"Ultra HD",desc:"Netflix Ultra HD profile plan. Region/profile confirmed by admin.",glow:"rgba(255,79,109,.30)",plans:[{label:"3 Months",note:"Ultra HD profile",price:28000},{label:"6 Months",note:"Ultra HD profile",price:45000},{label:"1 Year",note:"Ultra HD profile",price:80000}]},
+        {name:"HBO Max",icon:"HBO",logo:"https://cdn.simpleicons.org/hbomax/8D5BFF",tag:"Movie",desc:"HBO Max streaming plan. Region/account details confirmed by admin.",glow:"rgba(90,169,255,.28)",plans:[{label:"3 Months",note:"Streaming account",price:25000},{label:"6 Months",note:"Streaming account",price:40000},{label:"1 Year",note:"Streaming account",price:70000}]},
+        {name:"YouTube Premium",icon:"YT",logo:"https://cdn.simpleicons.org/youtube/FF0000",tag:"Popular",desc:"Ad-free YouTube and background play.",glow:"rgba(255,79,109,.28)",plans:[{label:"1 Month",note:"Individual",price:28000},{label:"Family Slot",note:"Ask admin",price:22000}]},
+        {name:"Spotify Premium",icon:"S",logo:"https://cdn.simpleicons.org/spotify/1ED760",tag:"Music",desc:"Music streaming premium plan.",glow:"rgba(34,211,166,.28)",plans:[{label:"1 Month",note:"Individual",price:22000},{label:"3 Months",note:"Promo price",price:60000}]},
+        {name:"Disney+",icon:"D+",logo:"https://images.icon-icons.com/2657/PNG/256/disney_plus_icon_161064.png",tag:"Movie",desc:"Streaming plan where available.",glow:"rgba(90,169,255,.28)",plans:[{label:"1 Month",note:"Ask admin for region",price:30000}]},
+        {name:"Prime Video",icon:"PV",logo:"https://static.vecteezy.com/system/resources/thumbnails/046/437/251/small_2x/amazon-prime-logo-free-png.png",tag:"Movie",desc:"Amazon Prime Video access.",glow:"rgba(90,169,255,.22)",plans:[{label:"1 Month",note:"Limited stock",price:28000}]}
+      ]},
+      {category:"VPN",items:[
+        {name:"NordVPN",icon:"N",logo:"https://cdn.simpleicons.org/nordvpn/4687FF",tag:"Secure",desc:"Premium VPN for privacy, streaming and safer browsing.",glow:"rgba(90,169,255,.32)",plans:[{label:"1 Month",note:"Shared plan",price:25000},{label:"1 Year",note:"Ask admin",price:230000}]},
+        {name:"ExpressVPN",icon:"E",logo:"https://cdn.simpleicons.org/expressvpn/DA3940",tag:"Fast",desc:"Fast secure VPN connection. Choose 1 device or 5-device plan.",glow:"rgba(255,79,109,.26)",plans:[{label:"1 Device / 3 Months",note:"1 device",price:20000},{label:"1 Device / 6 Months",note:"1 device",price:30000},{label:"1 Device / 1 Year",note:"1 device",price:50000},{label:"5 Devices / 3 Months",note:"5 devices",price:55000},{label:"5 Devices / 6 Months",note:"5 devices",price:100000},{label:"5 Devices / 1 Year",note:"5 devices",price:180000}]},
+        {name:"Surfshark VPN",icon:"SS",logo:"https://cdn.simpleicons.org/surfshark/1EBFBF",tag:"Value",desc:"Budget-friendly VPN option with good device support.",glow:"rgba(34,211,166,.30)",plans:[{label:"1 Month",note:"Shared plan",price:22000},{label:"1 Year",note:"Best value",price:190000}]}
+      ]},
+      {category:"Design & Editing",items:[
+        {name:"Canva Pro",icon:"Ca",logo:"https://public.canva.site/logo/media/dfb96cc174513093cd6ed61489ccb750.svg",tag:"Creator",desc:"Templates, brand assets and design tools.",glow:"rgba(90,169,255,.28)",plans:[{label:"1 Month",note:"Team slot",price:25000},{label:"1 Year",note:"Best value",price:180000}]},
+        {name:"CapCut Pro",icon:"CC",logo:"https://static.vecteezy.com/system/resources/previews/067/065/640/non_2x/capcut-logo-square-rounded-capcut-logo-capcut-logo-free-download-free-png.png",tag:"Video",desc:"Premium tools for short videos and social content.",glow:"rgba(255,255,255,.20)",plans:[{label:"1 Month",note:"Admin activation",price:30000}]},
+        {name:"PicsArt Gold",icon:"PA",logo:"https://cdn.simpleicons.org/picsart/EB2C8A",tag:"Photo",desc:"Photo editing, templates and premium creative features.",glow:"rgba(255,79,109,.28)",plans:[{label:"1 Month",note:"Ask admin",price:24000}]},
+        {name:"Adobe Creative Cloud",icon:"Ae",logo:"https://static.vecteezy.com/system/resources/previews/046/861/659/non_2x/adobe-creative-express-cloud-icon-free-png.png",tag:"Pro",desc:"Creative software plan. Activation type confirmed before payment.",glow:"rgba(255,138,61,.26)",plans:[{label:"1 Month",note:"Selected apps",price:95000},{label:"Full Suite",note:"Ask admin",price:180000}]},
+        {name:"Lightroom",icon:"Lr",logo:"https://freepnglogo.com/images/all_img/1706269571lightroom-logo-png.png",tag:"Photo",desc:"Photo editing and color grading.",glow:"rgba(90,169,255,.30)",plans:[{label:"1 Month",note:"Admin setup",price:35000}]},
+        {name:"Photoshop",icon:"Ps",logo:"https://logos-world.net/wp-content/uploads/2020/11/Adobe-Photoshop-Logo.png",tag:"Design",desc:"Image editing software subscription or activation support.",glow:"rgba(90,169,255,.32)",plans:[{label:"1 Month",note:"Ask admin",price:45000}]}
+      ]},
+      {category:"Microsoft & Productivity",items:[
+        {name:"Microsoft 365",icon:"M",logo:"https://www.freelogovectors.net/wp-content/uploads/2025/07/microsoft-365-copliot-logo-icon-freelogovectors.net_.png",tag:"Office",desc:"Word, Excel, PowerPoint and cloud features.",glow:"rgba(255,138,61,.30)",plans:[{label:"1 Year",note:"Personal/family option",price:120000}]},
+        {name:"Windows License",icon:"W",logo:"https://www.freepnglogos.com/uploads/windows-logo-png/windows-logo-logok-0.png",tag:"License",desc:"Windows activation license.",glow:"rgba(90,169,255,.26)",plans:[{label:"Windows 10/11 Pro",note:"Single device",price:55000}]},
+        {name:"WPS Office",icon:"WPS",logo:"https://cdn.iconscout.com/icon/free/png-256/free-wps-office-logo-icon-svg-download-png-8630411.png?f=webp",tag:"Office",desc:"Office tools subscription for documents and PDFs.",glow:"rgba(255,211,106,.24)",plans:[{label:"1 Year",note:"Ask admin",price:65000}]},
+        {name:"Zoom Pro",icon:"Z",logo:"https://cdn.simpleicons.org/zoom/2D8CFF",tag:"Meeting",desc:"Video meeting plan for work and classes.",glow:"rgba(90,169,255,.24)",plans:[{label:"1 Month",note:"Admin activation",price:35000}]}
+      ]},
+      {category:"Cloud Storage",items:[
+        {name:"Google One",icon:"G1",logo:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/250px-Google_%22G%22_logo.svg.png",tag:"Cloud",desc:"Google storage plan. Region/account requirements confirmed.",glow:"rgba(90,169,255,.25)",plans:[{label:"100GB / 1 Month",note:"Ask admin",price:15000},{label:"2TB / 1 Month",note:"Ask admin",price:38000}]},
+        {name:"iCloud",icon:"iC",logo:"https://cdn.freebiesupply.com/images/large/2x/apple-logo-transparent.png",tag:"Apple",desc:"iCloud storage option for Apple users.",glow:"rgba(255,255,255,.20)",plans:[{label:"50GB / 1 Month",note:"Ask admin",price:15000},{label:"200GB / 1 Month",note:"Ask admin",price:25000}]},
+        {name:"TeraBox",icon:"TB",logo:"https://cdn.simpleicons.org/dropbox/4C8BF5",tag:"Backup",desc:"Large cloud storage subscription.",glow:"rgba(90,169,255,.24)",plans:[{label:"1 Month",note:"Ask admin",price:18000}]}
+      ]},
+      {category:"Gift Cards & Gaming",items:[
+        {name:"Google Play Gift Card",icon:"GP",logo:"https://cdn.simpleicons.org/googleplay/34A853",tag:"Card",desc:"Google Play balance. Region and value confirmed before payment.",glow:"rgba(34,211,166,.26)",plans:[{label:"10 USD",note:"Region required",price:45000},{label:"25 USD",note:"Region required",price:112000}]},
+        {name:"Steam Wallet",icon:"ST",logo:"https://cdn.simpleicons.org/steam/FFFFFF",tag:"Gaming",desc:"Steam wallet top-up card.",glow:"rgba(90,169,255,.25)",plans:[{label:"10 USD",note:"Region required",price:46000},{label:"50 USD",note:"Region required",price:230000}]},
+        {name:"Apple Gift Card",icon:"AP",logo:"https://cdn.simpleicons.org/apple/FFFFFF",tag:"Card",desc:"Apple balance card.",glow:"rgba(255,255,255,.20)",plans:[{label:"10 USD",note:"US/other region",price:47000}]},
+        {name:"Game Top Up",icon:"🎮",tag:"Game",desc:"Mobile game top-up support. Send game ID and server details.",glow:"rgba(255,211,106,.25)",plans:[{label:"Custom",note:"Depends on game",price:0}]}
+      ]}
+    ];
+
+    const popularNames=["ChatGPT Plus","Netflix Ultra HD Profiles","HBO Max","ExpressVPN","YouTube Premium","Canva Pro"];
+    const state={cart:[],activeCategory:"All",search:"",selectedProduct:null,selectedPlanIndex:0};
+    const qs=s=>document.querySelector(s), qsa=s=>Array.from(document.querySelectorAll(s));
+    const money=v=>v===0?"Ask Admin":v.toLocaleString("en-US")+" Ks";
+    const allProducts=()=>products.flatMap(g=>g.items.map(i=>({...i,category:g.category})));
+
+    function toast(msg){const t=qs("#toast");t.textContent=msg;t.classList.add("show");clearTimeout(toast.timer);toast.timer=setTimeout(()=>t.classList.remove("show"),1500)}
+    function visual(p){return p.logo?`<img src="${p.logo}" alt="${p.name} logo" loading="lazy">`:p.icon}
+    function card(p){const min=p.plans.find(x=>x.price>0)?.price||0;return `<article class="product-card" style="--glow:${p.glow}" tabindex="0" role="button" data-product="${p.name}"><div class="product-icon">${visual(p)}</div><h3>${p.name}</h3><div class="mini">${p.desc}</div><div class="price"><span>${min?"From "+money(min):"Custom Quote"}</span><span class="chip">${p.tag}</span></div></article>`}
+    function renderTabs(){const cats=["All",...products.map(g=>g.category)];qs("#tabs").innerHTML=cats.map(c=>`<button class="tab ${c===state.activeCategory?"active":""}" data-category="${c}">${c}</button>`).join("");qsa(".tab").forEach(t=>t.onclick=()=>{state.activeCategory=t.dataset.category;renderProducts();renderTabs()})}
+    function matches(p){const k=state.search.trim().toLowerCase();return (state.activeCategory==="All"||p.category===state.activeCategory)&&(!k||[p.name,p.category,p.tag,p.desc].join(" ").toLowerCase().includes(k))}
+    function renderProducts(){const pop=allProducts().filter(p=>popularNames.includes(p.name)&&matches(p));qs("#popular-grid").innerHTML=pop.map(card).join("");const sections=products.map(g=>{const f=g.items.map(i=>({...i,category:g.category})).filter(matches);return f.length?`<div class="section-title"><div><h2>${g.category}</h2><p>${f.length} item(s) available in this category.</p></div></div><div class="grid">${f.map(card).join("")}</div>`:""}).join("");qs("#sections").innerHTML=sections;qs("#empty-state").style.display=(pop.length||sections.trim())?"none":"block";qsa(".product-card").forEach(c=>{c.onclick=()=>openProduct(c.dataset.product);c.onkeydown=e=>{if(e.key==="Enter"||e.key===" ")openProduct(c.dataset.product)}})}
+    function openProduct(name){const p=allProducts().find(x=>x.name===name);if(!p)return;state.selectedProduct=p;state.selectedPlanIndex=0;renderDetail();qs("#home-view").classList.remove("active");qs("#detail-view").classList.add("active");scrollTo({top:0,behavior:"smooth"})}
+    function renderDetail(){const p=state.selectedProduct, selected=p.plans[state.selectedPlanIndex];qs("#detail-card").innerHTML=`<div class="detail-visual" style="--glow:${p.glow}"><div class="detail-mark">${visual(p)}</div></div><div class="detail-info"><div class="eyebrow">${p.category} • ${p.tag}</div><h2>${p.name}</h2><p class="desc">${p.desc}</p><div class="plans">${p.plans.map((pl,i)=>`<div class="plan ${i===state.selectedPlanIndex?"active":""}" data-plan-index="${i}"><div><strong>${pl.label}</strong><small>${pl.note}</small></div><strong>${money(pl.price)}</strong></div>`).join("")}</div><button class="btn btn-primary" id="add-selected">Add ${selected.label} to Cart</button> <button class="btn btn-secondary" id="ask-admin">Ask Admin</button><div class="notice">Final stock, region, account type, delivery method and current price must be confirmed by admin before payment.</div></div>`;qsa(".plan").forEach(el=>el.onclick=()=>{state.selectedPlanIndex=Number(el.dataset.planIndex);renderDetail()});qs("#add-selected").onclick=()=>addCart(p,p.plans[state.selectedPlanIndex]);qs("#ask-admin").onclick=()=>window.open(`https://t.me/biggestseller1?text=${encodeURIComponent("Hello admin, I want to ask about "+p.name+".")}`,"_blank")}
+    function addCart(p,pl){state.cart.push({id:Date.now()+Math.random(),name:p.name,category:p.category,plan:pl.label,note:pl.note,price:pl.price});renderCart();qs("#cart-bar").classList.remove("collapsed");toast(p.name+" added to cart")}
+    function renderCart(){const total=state.cart.reduce((s,i)=>s+i.price,0);qs("#cart-total").textContent=money(total);qs("#cart-count").textContent=state.cart.length;qs("#cart-items").innerHTML=state.cart.length?state.cart.map(i=>`<div class="cart-item"><div><strong>${i.name}</strong><small>${i.plan} • ${i.note}</small></div><strong>${money(i.price)}</strong><button class="remove" data-remove="${i.id}">Remove</button></div>`).join(""):`<div class="cart-item"><div><strong>Your cart is empty</strong><small>Add products to start an order.</small></div></div>`;qsa("[data-remove]").forEach(b=>b.onclick=()=>{state.cart=state.cart.filter(i=>String(i.id)!==b.dataset.remove);renderCart()})}
+    function receipt(){return ["BIGGEST SELLER MYANMAR ORDER REQUEST","--------------------------------------",...state.cart.flatMap((i,n)=>[`${n+1}. ${i.name}`,`   Plan: ${i.plan}`,`   Note: ${i.note}`,`   Price: ${money(i.price)}`]),"--------------------------------------",`Total: ${money(state.cart.reduce((s,i)=>s+i.price,0))}`,"","Please confirm stock, region, delivery time and current price before I pay."].join("\n")}
+    function openReceipt(){if(!state.cart.length)return toast("Your cart is empty");qs("#receipt-box").textContent=receipt();qs("#receipt-modal").classList.add("active")}
+    async function copyReceipt(){try{await navigator.clipboard.writeText(receipt());toast("Receipt copied")}catch(e){toast("Copy failed. Select receipt manually.")}}
+    function home(){qs("#detail-view").classList.remove("active");qs("#home-view").classList.add("active");scrollTo({top:0,behavior:"smooth"})}
+
+    qs("#search").oninput=e=>{state.search=e.target.value;qs("#clear-search").style.display=state.search?"inline-flex":"none";renderProducts()}
+    qs("#clear-search").onclick=()=>{state.search="";qs("#search").value="";qs("#clear-search").style.display="none";renderProducts()}
+    qs("#how-btn").onclick=()=>qs("#how-modal").classList.add("active");qs("#back-to-home").onclick=home;qs("#home-link").onclick=e=>{e.preventDefault();home()}
+    qs("#cart-toggle").onclick=()=>qs("#cart-bar").classList.toggle("collapsed");qs("#clear-cart").onclick=()=>{state.cart=[];renderCart();toast("Cart cleared")};qs("#checkout").onclick=openReceipt;qs("#copy-receipt").onclick=copyReceipt;
+    qsa("[data-close]").forEach(b=>b.onclick=()=>qs("#"+b.dataset.close).classList.remove("active"));qsa(".overlay").forEach(o=>o.onclick=e=>{if(e.target===o)o.classList.remove("active")});
+
+    function stars(){const c=qs("#starfield"),ctx=c.getContext("2d"),stars=[];function resize(){c.width=innerWidth*devicePixelRatio;c.height=innerHeight*devicePixelRatio;ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0)}function seed(){stars.length=0;for(let i=0;i<115;i++)stars.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.7+.35,s:Math.random()*.35+.08,a:Math.random()*.7+.2})}function draw(){ctx.clearRect(0,0,innerWidth,innerHeight);stars.forEach(st=>{st.y+=st.s;if(st.y>innerHeight){st.y=-3;st.x=Math.random()*innerWidth}ctx.beginPath();ctx.arc(st.x,st.y,st.r,0,Math.PI*2);ctx.fillStyle=`rgba(255,255,255,${st.a})`;ctx.fill()});requestAnimationFrame(draw)}addEventListener("resize",()=>{resize();seed()});resize();seed();draw()}
+    renderTabs();renderProducts();renderCart();stars();
+  </script>
+</body>
+</html>
