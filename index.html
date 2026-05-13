@@ -86,6 +86,48 @@
     @media(max-width:980px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(4,minmax(0,1fr))}.detail-card{grid-template-columns:1fr}.detail-visual{min-height:230px}.nav-actions .pill:first-child{display:none}}
     @media(max-width:680px){body{padding-bottom:132px}.shell{width:min(100% - 20px,1180px)}.nav{min-height:68px;align-items:flex-start;padding:10px 0}.nav-actions{flex-wrap:wrap;justify-content:flex-end}.language-switch span{display:none}.language-switch select{max-width:126px}.brand span{display:none}.logo{width:42px;height:42px}.hero{padding-top:18px}.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.product-card{min-height:165px;padding:12px;border-radius:18px}.product-icon{width:54px;height:54px;font-size:20px;border-radius:17px}.product-card h3{font-size:13px}.mini{font-size:11px;min-height:32px}.price{font-size:12px;flex-direction:column;align-items:flex-start;gap:5px}.search-wrap{top:68px}.cart-top{grid-template-columns:auto 1fr}.cart-actions{grid-column:1/-1}.cart-actions .btn{width:100%}.cart-item{grid-template-columns:1fr auto}.cart-item>strong{grid-column:2;grid-row:1}.remove{grid-column:2;grid-row:2}.modal{padding:18px;border-radius:24px}}
     @media(max-width:400px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+    /* Direct social message buttons: copy selected product details, then open chat. */
+    .social-actions{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+    .social-actions .btn{min-height:42px;border-radius:14px;padding:10px 14px}
+    .btn-messenger{background:rgba(0,132,255,.14);border:1px solid rgba(0,132,255,.34);color:var(--text)}
+    .btn-telegram{background:rgba(38,165,228,.14);border:1px solid rgba(38,165,228,.34);color:var(--text)}
+    .social-icon-btn{
+      width:48px;
+      height:44px;
+      min-height:44px;
+      padding:9px;
+      display:inline-grid;
+      place-items:center;
+      border-radius:15px;
+      flex:0 0 auto;
+    }
+    .nav-actions .social-icon-btn{
+      width:42px;
+      height:42px;
+      min-height:42px;
+      border-radius:999px;
+      padding:9px;
+    }
+    .social-icon{
+      width:24px;
+      height:24px;
+      display:block;
+      filter:drop-shadow(0 4px 10px rgba(0,0,0,.28));
+    }
+    .nav-actions .social-icon{width:22px;height:22px}
+    .sr-only{
+      position:absolute!important;
+      width:1px!important;
+      height:1px!important;
+      padding:0!important;
+      margin:-1px!important;
+      overflow:hidden!important;
+      clip:rect(0,0,0,0)!important;
+      white-space:nowrap!important;
+      border:0!important;
+    }
+    @media(max-width:520px){.social-actions{display:flex}.social-actions .btn{width:48px}}
   </style>
 </head>
 <body>
@@ -99,7 +141,8 @@
       </a>
       <div class="nav-actions">
         <a href="#products" class="pill" data-i18n="navProducts">Products</a>
-        <a href="https://t.me/biggestseller1" target="_blank" rel="noopener" class="pill">Telegram</a>
+        <a href="https://t.me/biggestseller1" target="_blank" rel="noopener" class="pill btn-telegram social-icon-btn" aria-label="Telegram" title="Telegram"><svg class="social-icon" viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="120" fill="#26A5E4"/><path fill="#fff" d="M178.7 63.5 41.9 116.2c-9.3 3.7-9.2 8.8-1.7 11.1l35.1 11 13.4 42.2c1.7 4.8.9 6.7 5.8 6.7 3.8 0 5.5-1.7 7.6-3.8l18.3-17.8 38.1 28.2c7 3.9 12.1 1.9 13.8-6.5l25.1-118.1c2.6-10.3-3.9-14.9-18.7-5.7Zm-97.8 72.2 80.3-50.6c4-2.4 7.7-1.1 4.7 1.6l-68.8 62.1-2.7 29.3-13.5-42.4Z"/></svg><span class="sr-only">Telegram</span></a>
+        <a href="https://www.messenger.com/t/TheBiggestSeller3" target="_blank" rel="noopener" class="pill btn-messenger social-icon-btn" aria-label="Messenger" title="Messenger"><svg class="social-icon" viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="120" fill="#0084FF"/><path fill="#fff" d="M62 141.5 104.9 96l28.7 30.6L178 96l-43 45.5-28.6-30.6L62 141.5Z"/></svg><span class="sr-only">Messenger</span></a>
         <label class="language-switch" for="language-select"><span data-i18n="languageLabel">Language</span><select id="language-select" aria-label="Language"><option value="en">English</option><option value="th">ไทย</option><option value="zh">中文</option><option value="ru">Русский</option><option value="my">မြန်မာ</option></select></label>
       </div>
     </div>
@@ -195,7 +238,8 @@
       <div class="modal-actions">
         <button class="btn btn-secondary" data-close="receipt-modal" data-i18n="close">Close</button>
         <button class="btn btn-primary" id="copy-receipt" data-i18n="copyReceipt">Copy Receipt</button>
-        <a class="btn btn-primary" href="https://t.me/biggestseller1" target="_blank" rel="noopener" data-i18n="sendTelegram">Send to Telegram</a>
+        <button class="btn btn-primary btn-telegram social-icon-btn" id="send-receipt-telegram" type="button" aria-label="Send receipt to Telegram" title="Telegram"><svg class="social-icon" viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="120" fill="#26A5E4"/><path fill="#fff" d="M178.7 63.5 41.9 116.2c-9.3 3.7-9.2 8.8-1.7 11.1l35.1 11 13.4 42.2c1.7 4.8.9 6.7 5.8 6.7 3.8 0 5.5-1.7 7.6-3.8l18.3-17.8 38.1 28.2c7 3.9 12.1 1.9 13.8-6.5l25.1-118.1c2.6-10.3-3.9-14.9-18.7-5.7Zm-97.8 72.2 80.3-50.6c4-2.4 7.7-1.1 4.7 1.6l-68.8 62.1-2.7 29.3-13.5-42.4Z"/></svg><span class="sr-only" data-i18n="sendTelegram">Send to Telegram</span></button>
+        <button class="btn btn-secondary btn-messenger social-icon-btn" id="send-receipt-messenger" type="button" aria-label="Send receipt to Messenger" title="Messenger"><svg class="social-icon" viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="120" fill="#0084FF"/><path fill="#fff" d="M62 141.5 104.9 96l28.7 30.6L178 96l-43 45.5-28.6-30.6L62 141.5Z"/></svg><span class="sr-only" data-i18n="sendMessenger">Send to Messenger</span></button>
       </div>
     </div>
   </div>
@@ -902,7 +946,7 @@
         emptyState:"No products found. Try a different search keyword.", footer:"Biggest Seller Myanmar storefront template. Replace Telegram link, prices, product list and payment instructions with your real business information.",
         exchangeNotice:"Currency amounts are approximate local-currency conversions from MMK using third-party exchange-rate sources; confirm final price with admin before payment.",
         back:"← Back", total:"Total:", itemsWord:"item(s)", checkout:"Checkout", howModalTitle:"How to order", how1:"Choose your product and plan.", how2:"Add it to cart.", how3:"Press Checkout and copy the receipt.", how4:"Send the receipt to admin on Telegram.", how5:"Wait for stock, price, region and payment confirmation before transferring money.",
-        howMyanmar:"<strong>Myanmar:</strong> Choose product → Add to cart → Copy checkout receipt → Send to Telegram admin → Pay only after confirmation.", understand:"I understand", receiptTitle:"Receipt", receiptIntro:"Copy this receipt and send it to admin. Do not pay before admin confirms stock and current price.", close:"Close", copyReceipt:"Copy Receipt", sendTelegram:"Send to Telegram",
+        howMyanmar:"<strong>Myanmar:</strong> Choose product → Add to cart → Copy checkout receipt → Send to Telegram admin → Pay only after confirmation.", understand:"I understand", receiptTitle:"Receipt", receiptIntro:"Copy this receipt and send it to admin. Do not pay before admin confirms stock and current price.", close:"Close", copyReceipt:"Copy Receipt", sendTelegram:"Send to Telegram", sendMessenger:"Send to Messenger", messageCopied:"Message copied. Chat opened — paste or press send.",
         addedToCart:"Added to cart", askAdminPrice:"Ask Admin", from:"From", customQuote:"Custom Quote", availableItems:"{count} item(s) available in this category.", addToCart:"Add {plan} to Cart", askAdmin:"Ask Admin", detailNotice:"Final stock, region, account type, delivery method and current price must be confirmed by admin before payment.",
         remove:"Remove", cartEmptyTitle:"Your cart is empty", cartEmptyBody:"Add products to start an order.", receiptHeader:"BIGGEST SELLER MYANMAR ORDER REQUEST", receiptPlan:"Plan", receiptNote:"Note", receiptPrice:"Price", receiptTotal:"Total", receiptMessage:"Please confirm stock, region, delivery time and current price before I pay.", receiptCopied:"Receipt copied", copyFailed:"Copy failed. Select receipt manually.", cartCleared:"Cart cleared", emptyCartToast:"Your cart is empty", addedSuffix:"added to cart"
       },
@@ -1034,6 +1078,64 @@
     const allProducts=()=>products.flatMap(g=>g.items.map(i=>({...i,category:g.category})));
     const escapeHtml=value=>String(value).replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[ch]));
 
+    const TELEGRAM_CHAT_URL="https://t.me/biggestseller1";
+    const MESSENGER_CHAT_URL="https://www.messenger.com/t/TheBiggestSeller3";
+    const encodeMessage=message=>encodeURIComponent(message);
+    const decodeMessage=message=>decodeURIComponent(message||"");
+    function telegramMessageUrl(message){return `${TELEGRAM_CHAT_URL}?text=${encodeURIComponent(message)}`}
+    function messengerMessageUrl(){return MESSENGER_CHAT_URL}
+    const telegramIcon=`<svg class="social-icon" viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="120" fill="#26A5E4"/><path fill="#fff" d="M178.7 63.5 41.9 116.2c-9.3 3.7-9.2 8.8-1.7 11.1l35.1 11 13.4 42.2c1.7 4.8.9 6.7 5.8 6.7 3.8 0 5.5-1.7 7.6-3.8l18.3-17.8 38.1 28.2c7 3.9 12.1 1.9 13.8-6.5l25.1-118.1c2.6-10.3-3.9-14.9-18.7-5.7Zm-97.8 72.2 80.3-50.6c4-2.4 7.7-1.1 4.7 1.6l-68.8 62.1-2.7 29.3-13.5-42.4Z"/></svg>`;
+    const messengerIcon=`<svg class="social-icon" viewBox="0 0 240 240" aria-hidden="true"><circle cx="120" cy="120" r="120" fill="#0084FF"/><path fill="#fff" d="M62 141.5 104.9 96l28.7 30.6L178 96l-43 45.5-28.6-30.6L62 141.5Z"/></svg>`;
+    function socialIconButton(platform,id,labelKey){
+      const icon=platform==="telegram"?telegramIcon:messengerIcon;
+      const cls=platform==="telegram"?"btn-telegram":"btn-messenger";
+      const label=t(labelKey);
+      return `<button class="btn btn-secondary ${cls} social-icon-btn" id="${id}" type="button" aria-label="${escapeHtml(label)}" title="${platform==="telegram"?"Telegram":"Messenger"}">${icon}<span class="sr-only">${escapeHtml(label)}</span></button>`;
+    }
+    function productMessage(product,plan){
+      const receiptMoney=v=>currency().code==="MMK"?money(v):`${money(v)} (${baseMmk(v)} base)`;
+      const lines=[
+        "Hello Biggest Seller Myanmar admin,",
+        "I would like to check/order this product:",
+        `Product: ${product.name}`,
+        `Category: ${catName(product.category)}`,
+        `Currency: ${currency().code}`
+      ];
+      if(plan){
+        lines.push(`Plan: ${planLabel(plan.label)}`);
+        lines.push(`Note: ${planNote(plan.note)}`);
+        lines.push(`Price: ${receiptMoney(plan.price)}`);
+      }else{
+        lines.push("", "Available plans:");
+        product.plans.forEach(pl=>lines.push(`- ${planLabel(pl.label)} — ${receiptMoney(pl.price)}${pl.note?` (${planNote(pl.note)})`:""}`));
+      }
+      lines.push("", t("receiptMessage"));
+      return lines.join("\n");
+    }
+    async function copyText(text){
+      try{
+        if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(text);return true}
+      }catch(e){}
+      const area=document.createElement("textarea");
+      area.value=text;
+      area.setAttribute("readonly","");
+      area.style.position="fixed";
+      area.style.left="-9999px";
+      area.style.top="0";
+      document.body.appendChild(area);
+      area.focus();
+      area.select();
+      let ok=false;
+      try{ok=document.execCommand("copy")}catch(e){ok=false}
+      document.body.removeChild(area);
+      return ok;
+    }
+    async function copyThenOpen(message,url){
+      const copied=await copyText(message);
+      toast(copied?t("messageCopied"):t("copyFailed"));
+      window.open(url,"_blank","noopener");
+    }
+
     function toast(msg){const el=qs("#toast");el.textContent=msg;el.classList.add("show");clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.classList.remove("show"),1500)}
     function visual(p){return p.logo?`<img src="${escapeHtml(p.logo)}" alt="${escapeHtml(p.name)} logo" loading="lazy">`:escapeHtml(p.icon)}
     function card(p){const min=p.plans.find(x=>x.price>0)?.price||0;return `<article class="product-card" style="--glow:${escapeHtml(p.glow)}" tabindex="0" role="button" data-product="${escapeHtml(p.name)}"><div class="product-icon">${visual(p)}</div><h3>${escapeHtml(p.name)}</h3><div class="mini">${escapeHtml(productDesc(p))}</div><div class="price"><span>${min?escapeHtml(t("from"))+" "+escapeHtml(money(min)):escapeHtml(t("customQuote"))}</span><span class="chip">${escapeHtml(tagName(p.tag))}</span></div></article>`}
@@ -1041,12 +1143,25 @@
     function matches(p){const k=state.search.trim().toLowerCase();const searchable=[p.name,p.category,catName(p.category),p.tag,tagName(p.tag),p.desc,productDesc(p)].join(" ").toLowerCase();return (state.activeCategory==="All"||p.category===state.activeCategory)&&(!k||searchable.includes(k))}
     function renderProducts(){const pop=allProducts().filter(p=>popularNames.includes(p.name)&&matches(p));qs("#popular-grid").innerHTML=pop.map(card).join("");const sections=products.map(g=>{const f=g.items.map(i=>({...i,category:g.category})).filter(matches);return f.length?`<div class="section-title"><div><h2>${escapeHtml(catName(g.category))}</h2><p>${escapeHtml(t("availableItems",{count:f.length}))}</p></div></div><div class="grid">${f.map(card).join("")}</div>`:""}).join("");qs("#sections").innerHTML=sections;qs("#empty-state").style.display=(pop.length||sections.trim())?"none":"block";qsa(".product-card").forEach(c=>{c.onclick=()=>openProduct(c.dataset.product);c.onkeydown=e=>{if(e.key==="Enter"||e.key===" ")openProduct(c.dataset.product)}})}
     function openProduct(name){const p=allProducts().find(x=>x.name===name);if(!p)return;state.selectedProduct=p;state.selectedPlanIndex=0;renderDetail();qs("#home-view").classList.remove("active");qs("#detail-view").classList.add("active");scrollTo({top:0,behavior:"smooth"})}
-    function renderDetail(){const p=state.selectedProduct, selected=p.plans[state.selectedPlanIndex];qs("#detail-card").innerHTML=`<div class="detail-visual" style="--glow:${escapeHtml(p.glow)}"><div class="detail-mark">${visual(p)}</div></div><div class="detail-info"><div class="eyebrow">${escapeHtml(catName(p.category))} • ${escapeHtml(tagName(p.tag))}</div><h2>${escapeHtml(p.name)}</h2><p class="desc">${escapeHtml(productDesc(p))}</p><div class="plans">${p.plans.map((pl,i)=>`<div class="plan ${i===state.selectedPlanIndex?"active":""}" data-plan-index="${i}"><div><strong>${escapeHtml(planLabel(pl.label))}</strong><small>${escapeHtml(planNote(pl.note))}</small></div><strong>${escapeHtml(money(pl.price))}</strong></div>`).join("")}</div><button class="btn btn-primary" id="add-selected">${escapeHtml(t("addToCart",{plan:planLabel(selected.label)}))}</button> <button class="btn btn-secondary" id="ask-admin">${escapeHtml(t("askAdmin"))}</button><div class="notice">${escapeHtml(t("detailNotice"))}</div></div>`;qsa(".plan").forEach(el=>el.onclick=()=>{state.selectedPlanIndex=Number(el.dataset.planIndex);renderDetail()});qs("#add-selected").onclick=()=>addCart(p,p.plans[state.selectedPlanIndex]);qs("#ask-admin").onclick=()=>window.open(`https://t.me/biggestseller1?text=${encodeURIComponent("Hello admin, I want to ask about "+p.name+".")}`,"_blank")}
+    function renderDetail(){
+      const p=state.selectedProduct, selected=p.plans[state.selectedPlanIndex];
+      const selectedMessage=productMessage(p,selected);
+      qs("#detail-card").innerHTML=`<div class="detail-visual" style="--glow:${escapeHtml(p.glow)}"><div class="detail-mark">${visual(p)}</div></div><div class="detail-info"><div class="eyebrow">${escapeHtml(catName(p.category))} • ${escapeHtml(tagName(p.tag))}</div><h2>${escapeHtml(p.name)}</h2><p class="desc">${escapeHtml(productDesc(p))}</p><div class="plans">${p.plans.map((pl,i)=>`<div class="plan ${i===state.selectedPlanIndex?"active":""}" data-plan-index="${i}"><div><strong>${escapeHtml(planLabel(pl.label))}</strong><small>${escapeHtml(planNote(pl.note))}</small></div><strong>${escapeHtml(money(pl.price))}</strong></div>`).join("")}</div><button class="btn btn-primary" id="add-selected">${escapeHtml(t("addToCart",{plan:planLabel(selected.label)}))}</button><div class="social-actions">${socialIconButton("telegram","ask-admin","sendTelegram")}${socialIconButton("messenger","ask-messenger","sendMessenger")}</div><div class="notice">${escapeHtml(t("detailNotice"))}</div></div>`;
+      qsa(".plan").forEach(el=>el.onclick=()=>{state.selectedPlanIndex=Number(el.dataset.planIndex);renderDetail()});
+      qs("#add-selected").onclick=()=>addCart(p,p.plans[state.selectedPlanIndex]);
+      qs("#ask-admin").onclick=()=>copyThenOpen(selectedMessage,telegramMessageUrl(selectedMessage));
+      qs("#ask-messenger").onclick=()=>copyThenOpen(selectedMessage,messengerMessageUrl());
+    }
     function addCart(p,pl){state.cart.push({id:Date.now()+Math.random(),name:p.name,category:p.category,plan:pl.label,note:pl.note,price:pl.price});renderCart();qs("#cart-bar").classList.remove("collapsed");toast(`${p.name} ${t("addedSuffix")}`)}
     function renderCart(){const total=state.cart.reduce((s,i)=>s+i.price,0);qs("#cart-total-label").textContent=t("total");qs("#cart-total").textContent=money(total);qs("#cart-count").textContent=state.cart.length;qs("#cart-items-label").textContent=t("itemsWord");qs("#cart-items").innerHTML=state.cart.length?state.cart.map(i=>`<div class="cart-item"><div><strong>${escapeHtml(i.name)}</strong><small>${escapeHtml(planLabel(i.plan))} • ${escapeHtml(planNote(i.note))}</small></div><strong>${escapeHtml(money(i.price))}</strong><button class="remove" data-remove="${i.id}">${escapeHtml(t("remove"))}</button></div>`).join(""):`<div class="cart-item"><div><strong>${escapeHtml(t("cartEmptyTitle"))}</strong><small>${escapeHtml(t("cartEmptyBody"))}</small></div></div>`;qsa("[data-remove]").forEach(b=>b.onclick=()=>{state.cart=state.cart.filter(i=>String(i.id)!==b.dataset.remove);renderCart()})}
     function receipt(){const receiptMoney=v=>currency().code==="MMK"?money(v):`${money(v)} (${baseMmk(v)} base)`;return [t("receiptHeader"),"--------------------------------------",...state.cart.flatMap((i,n)=>[`${n+1}. ${i.name}`,`   ${t("receiptPlan")}: ${planLabel(i.plan)}`,`   ${t("receiptNote")}: ${planNote(i.note)}`,`   ${t("receiptPrice")}: ${receiptMoney(i.price)}`]),"--------------------------------------",`${t("receiptTotal")}: ${receiptMoney(state.cart.reduce((s,i)=>s+i.price,0))}`,"",t("receiptMessage")].join("\n")}
-    function openReceipt(){if(!state.cart.length)return toast(t("emptyCartToast"));qs("#receipt-box").textContent=receipt();qs("#receipt-modal").classList.add("active")}
-    async function copyReceipt(){try{await navigator.clipboard.writeText(receipt());toast(t("receiptCopied"))}catch(e){toast(t("copyFailed"))}}
+    function openReceipt(){
+      if(!state.cart.length)return toast(t("emptyCartToast"));
+      const message=receipt();
+      qs("#receipt-box").textContent=message;
+      qs("#receipt-modal").classList.add("active");
+    }
+    async function copyReceipt(){const ok=await copyText(receipt());toast(ok?t("receiptCopied"):t("copyFailed"))}
     function home(){qs("#detail-view").classList.remove("active");qs("#home-view").classList.add("active");scrollTo({top:0,behavior:"smooth"})}
     function applyStaticTranslations(){document.documentElement.lang=current().htmlLang;document.title="Biggest Seller Myanmar";qsa("[data-i18n]").forEach(el=>{el.textContent=t(el.dataset.i18n)});qsa("[data-i18n-html]").forEach(el=>{el.innerHTML=t(el.dataset.i18nHtml)});qsa("[data-i18n-placeholder]").forEach(el=>{el.placeholder=t(el.dataset.i18nPlaceholder)});const currencyCodeEl=qs("#currency-code");if(currencyCodeEl)currencyCodeEl.textContent=currency().code;if(qs("#receipt-modal").classList.contains("active"))qs("#receipt-box").textContent=receipt()}
     function setLanguage(lang){state.lang=I18N[lang]?lang:"en";localStorage.setItem("bsmLanguage",state.lang);const select=qs("#language-select");if(select)select.value=state.lang;applyStaticTranslations();renderTabs();renderProducts();renderCart();if(qs("#detail-view").classList.contains("active")&&state.selectedProduct)renderDetail()}
@@ -1055,7 +1170,7 @@
     qs("#search").oninput=e=>{state.search=e.target.value;qs("#clear-search").style.display=state.search?"inline-flex":"none";renderProducts()}
     qs("#clear-search").onclick=()=>{state.search="";qs("#search").value="";qs("#clear-search").style.display="none";renderProducts()}
     qs("#how-btn").onclick=()=>qs("#how-modal").classList.add("active");qs("#back-to-home").onclick=home;qs("#home-link").onclick=e=>{e.preventDefault();home()}
-    qs("#cart-toggle").onclick=()=>qs("#cart-bar").classList.toggle("collapsed");qs("#clear-cart").onclick=()=>{state.cart=[];renderCart();toast(t("cartCleared"))};qs("#checkout").onclick=openReceipt;qs("#copy-receipt").onclick=copyReceipt;
+    qs("#cart-toggle").onclick=()=>qs("#cart-bar").classList.toggle("collapsed");qs("#clear-cart").onclick=()=>{state.cart=[];renderCart();toast(t("cartCleared"))};qs("#checkout").onclick=openReceipt;qs("#copy-receipt").onclick=copyReceipt;qs("#send-receipt-telegram").onclick=()=>copyThenOpen(receipt(),telegramMessageUrl(receipt()));qs("#send-receipt-messenger").onclick=()=>copyThenOpen(receipt(),messengerMessageUrl());
     qsa("[data-close]").forEach(b=>b.onclick=()=>qs("#"+b.dataset.close).classList.remove("active"));qsa(".overlay").forEach(o=>o.onclick=e=>{if(e.target===o)o.classList.remove("active")});
 
     function stars(){const c=qs("#starfield"),ctx=c.getContext("2d"),stars=[];function resize(){c.width=innerWidth*devicePixelRatio;c.height=innerHeight*devicePixelRatio;ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0)}function seed(){stars.length=0;for(let i=0;i<115;i++)stars.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.7+.35,s:Math.random()*.35+.08,a:Math.random()*.7+.2})}function draw(){ctx.clearRect(0,0,innerWidth,innerHeight);stars.forEach(st=>{st.y+=st.s;if(st.y>innerHeight){st.y=-3;st.x=Math.random()*innerWidth}ctx.beginPath();ctx.arc(st.x,st.y,st.r,0,Math.PI*2);ctx.fillStyle=`rgba(255,255,255,${st.a})`;ctx.fill()});requestAnimationFrame(draw)}addEventListener("resize",()=>{resize();seed()});resize();seed();draw()}
